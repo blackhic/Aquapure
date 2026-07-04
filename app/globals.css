@@ -706,6 +706,14 @@ footer a:hover { color: var(--white); }
 .sticky-devis svg { width: 17px; height: 17px; fill: white; }
 .sticky-spacer { height: 0; }
 
+/* ── MENTIONS LÉGALES ── */
+.legal { max-width: 760px; margin-top: 8px; }
+.legal h2 { font-size: 17px; font-weight: 700; color: var(--navy); margin: 24px 0 8px; }
+.legal p { font-size: 15px; color: var(--text-mid); line-height: 1.7; }
+.legal a { color: var(--orange); text-decoration: none; }
+.legal a:hover { text-decoration: underline; }
+.legal-copy { margin-top: 28px; font-weight: 600; color: var(--gray-text); }
+
 /* ── DIVIDER ── */
 hr.div { border: none; border-top: 1px solid var(--gray-border); margin: 0; }
 

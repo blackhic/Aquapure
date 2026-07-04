@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
 import ServicePage from "@/app/components/ServicePage";
+import { pageMetadata } from "@/app/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Dépannage Plomberie Urgence 24h/24 Nice (06) | AQUAPURE",
   description:
     "Plombier d'urgence à Nice et Alpes-Maritimes 24h/24, 7j/7. Fuite d'eau, canalisation bouchée, WC, chauffe-eau en panne. Intervention rapide garantie ☎ 04 84 35 04 86",
-};
+  path: "/depannage-plombier-06-83.html",
+  image: "/photos/depannage-urgence.webp",
+  imageAlt: "Plombier AQUAPURE réparant une fuite d'eau en urgence à Nice",
+});
 
 export default function DepannagePage() {
   return (

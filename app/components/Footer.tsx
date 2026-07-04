@@ -26,6 +26,8 @@ export default function Footer() {
         <a href="mailto:contact@aquapureplomberie.fr">
           contact@aquapureplomberie.fr
         </a>
+        <br />
+        <Link href="/mentionslegales.html">Mentions légales &amp; RGPD</Link>
       </div>
     </footer>
   );

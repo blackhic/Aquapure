@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import StickyBar from "@/app/components/StickyBar";
+import { pageMetadata } from "@/app/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact & Devis Gratuit | Plombier Nice - AQUAPURE Plomberie",
   description:
     "Contactez AQUAPURE Plomberie à Nice pour un devis gratuit. Intervention rapide dans le 06 et 83. Disponible 24h/24, 7j/7. ☎ 04 84 35 04 86 ou par formulaire",
-};
+  path: "/contacter-aquapure-plomberie.html",
+});
 
 export default function ContactPage() {
   return (

@@ -1,11 +1,15 @@
-import type { Metadata } from "next";
 import ServicePage from "@/app/components/ServicePage";
+import { pageMetadata } from "@/app/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Rénovation Salle de Bain & Cuisine Nice | AQUAPURE Plomberie",
   description:
     "Création et rénovation complète salle de bain à Nice. Pose douche italienne, baignoire, WC suspendu, carrelage, adaptation PMR. Artisan plombier expert ☎ 04 84 35 04 86",
-};
+  path: "/installation-renovation-sdb-cuisine-nice.html",
+  image: "/photos/renovation-salle-de-bain.webp",
+  imageAlt:
+    "Rénovation de salle de bain à Nice avec douche italienne — AQUAPURE Plomberie",
+});
 
 export default function RenovationPage() {
   return (

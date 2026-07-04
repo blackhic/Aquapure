@@ -1,11 +1,15 @@
-import type { Metadata } from "next";
 import ServicePage from "@/app/components/ServicePage";
+import { pageMetadata } from "@/app/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Installation Chauffe-Eau Nice | Dépannage Ballon Eau Chaude",
   description:
     "Expert chauffe-eau à Nice : installation électrique et thermodynamique, remplacement, entretien, dépannage. Conseils personnalisés et devis gratuit ☎ 04 84 35 04 86",
-};
+  path: "/installation-depannage-chauffe-eau-a-nice.html",
+  image: "/photos/chauffe-eau.webp",
+  imageAlt:
+    "Installation de chauffe-eau à Nice par un plombier AQUAPURE",
+});
 
 export default function ChauffeEauPage() {
   return (

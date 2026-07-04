@@ -1,11 +1,15 @@
-import type { Metadata } from "next";
 import ServicePage from "@/app/components/ServicePage";
+import { pageMetadata } from "@/app/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Plomberie Générale Nice | Travaux & Raccordements | AQUAPURE",
   description:
     "Tous travaux de plomberie à Nice : création réseaux d'eau, pose cuisine, robinetterie, raccordements. Plombier professionnel qualifié. Devis gratuit ☎ 04 84 35 04 86",
-};
+  path: "/plomberie-generale-a-nice.html",
+  image: "/photos/plomberie-generale.webp",
+  imageAlt:
+    "Plombier AQUAPURE installant un robinet de cuisine à Nice",
+});
 
 export default function PlomberieGeneralePage() {
   return (
