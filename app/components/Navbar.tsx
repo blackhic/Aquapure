@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "./navLinks";
+import {
+  HOME_LINK,
+  SERVICE_LINKS,
+  CONTACT_LINK,
+} from "./navLinks";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isServiceActive = SERVICE_LINKS.some((l) => l.href === pathname);
 
   return (
     <nav className="navbar">
@@ -23,17 +28,43 @@ export default function Navbar() {
             </span>
           </div>
         </Link>
+
         <div className="nav-menu">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={pathname === link.href ? "active" : undefined}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href={HOME_LINK.href}
+            className={pathname === HOME_LINK.href ? "active" : undefined}
+          >
+            {HOME_LINK.label}
+          </Link>
+
+          <div className={`nav-dropdown${isServiceActive ? " active" : ""}`}>
+            <button type="button" className="nav-dropdown-trigger">
+              Les services proposés
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 10l5 5 5-5z" />
+              </svg>
+            </button>
+            <div className="nav-dropdown-panel">
+              {SERVICE_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={pathname === link.href ? "active" : undefined}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <Link
+            href={CONTACT_LINK.href}
+            className={pathname === CONTACT_LINK.href ? "active" : undefined}
+          >
+            {CONTACT_LINK.label}
+          </Link>
         </div>
+
         <div className="nav-actions">
           <div className="nav-badge">
             <span className="pulse-dot"></span>

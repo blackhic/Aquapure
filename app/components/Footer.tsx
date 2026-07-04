@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { NAV_LINKS } from "./navLinks";
+import { ALL_LINKS } from "./navLinks";
 
 export default function Footer() {
   return (
     <footer>
       <div className="footer-inner">
         <nav className="footer-nav">
-          {NAV_LINKS.map((link) => (
+          {ALL_LINKS.map((link) => (
             <Link key={link.href} href={link.href}>
               {link.label}
             </Link>

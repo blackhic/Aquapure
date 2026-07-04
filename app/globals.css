@@ -66,14 +66,59 @@ body {
 .logo-tagline { font-size: 11px; color: var(--gray-text); display: block; }
 .nav-actions { display: flex; gap: 10px; align-items: center; }
 
-/* ── NAV MENU (liens pages) ── */
-.nav-menu { display: flex; align-items: center; gap: 22px; }
-.nav-menu a {
-  font-size: 14px; font-weight: 500; color: var(--text-mid);
-  text-decoration: none; white-space: nowrap; transition: color .15s;
+/* ── NAV MENU (Accueil · Services ▾ · Contact) ── */
+.nav-menu { display: flex; align-items: center; gap: 30px; }
+.nav-menu > a,
+.nav-dropdown-trigger {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit; font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--navy); text-decoration: none; white-space: nowrap;
+  background: none; border: none; cursor: pointer; padding: 0;
+  transition: color .15s;
 }
-.nav-menu a:hover { color: var(--orange); }
-.nav-menu a.active { color: var(--navy); font-weight: 700; }
+.nav-menu > a:hover,
+.nav-dropdown-trigger:hover,
+.nav-menu > a.active,
+.nav-dropdown.active .nav-dropdown-trigger { color: var(--orange); }
+
+/* trigger chevron */
+.nav-dropdown-trigger svg {
+  width: 14px; height: 14px; fill: currentColor; transition: transform .2s;
+}
+.nav-dropdown:hover .nav-dropdown-trigger svg,
+.nav-dropdown:focus-within .nav-dropdown-trigger svg { transform: rotate(180deg); }
+
+/* dropdown */
+.nav-dropdown { position: relative; }
+.nav-dropdown::after { /* pont invisible pour garder le survol */
+  content: ""; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+}
+.nav-dropdown-panel {
+  position: absolute; top: calc(100% + 14px); left: 50%;
+  min-width: 300px;
+  background: var(--white); border: 1px solid var(--gray-border);
+  border-radius: 16px; box-shadow: 0 16px 48px rgba(0,0,0,0.16);
+  padding: 6px 0;
+  opacity: 0; visibility: hidden;
+  transform: translateX(-50%) translateY(-6px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  z-index: 250;
+}
+.nav-dropdown:hover .nav-dropdown-panel,
+.nav-dropdown:focus-within .nav-dropdown-panel {
+  opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-panel a {
+  display: block; padding: 15px 24px;
+  font-size: 16px; font-weight: 500; color: var(--text-dark);
+  text-decoration: none; white-space: nowrap;
+  transition: background .12s, color .12s;
+}
+.nav-dropdown-panel a:not(:last-child) { border-bottom: 1px solid var(--gray-border); }
+.nav-dropdown-panel a:hover { background: var(--gray-bg); color: var(--orange); }
+.nav-dropdown-panel a.active { color: var(--orange); font-weight: 700; }
+
 @media (max-width: 1024px) { .nav-menu { display: none; } }
 .nav-badge {
   display: flex; align-items: center; gap: 6px;
@@ -270,6 +315,34 @@ body {
 }
 .service-block .section-title { font-size: 20px; }
 .service-block .section-lead { margin-bottom: 0; max-width: 760px; }
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: start;
+}
+.contact-methods { display: flex; flex-direction: column; gap: 14px; }
+.contact-methods .why-detail a { color: var(--orange); font-weight: 600; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+.form-field input,
+.form-field textarea {
+  font-family: inherit; font-size: 15px; color: var(--text-dark);
+  padding: 12px 14px; border: 1px solid var(--gray-border);
+  border-radius: 10px; background: var(--white); transition: border-color .15s;
+}
+.form-field input:focus,
+.form-field textarea:focus { outline: none; border-color: var(--orange); }
+.form-field textarea { resize: vertical; min-height: 120px; }
+.contact-form button { align-self: flex-start; border: none; cursor: pointer; }
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}
 
 /* ── SERVICES ── */
 .services-grid {
