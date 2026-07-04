@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plombier Nice (06) &amp; Var (83) — Dépannage 24h/24 | AQUAPURE</title>
+<meta name="description" content="Plombier à Nice et dans le 06/83. Intervention d'urgence 24h/24 et 7j/7, rénovation de salle de bain, chauffe-eau. Artisan certifié, 15 ans d'expérience, devis gratuit. ☎ 04 84 35 04 86">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0D2B45;
+  --navy-mid: #1A3F5C;
+  --orange: #E8640A;
+  --orange-hover: #CF5608;
+  --white: #FFFFFF;
+  --gray-bg: #F7F8FA;
+  --gray-text: #6B7280;
+  --gray-border: #E5E7EB;
+  --text-dark: #0D1B2A;
+  --text-mid: #374151;
+  --green: #16A34A;
+  --green-bg: #DCFCE7;
+  --max-w: 1200px;
+  --px: clamp(16px, 4vw, 80px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-dark);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── CONTAINER ── */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+}
+
+/* ── NAVBAR ── */
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-border);
+  padding: 0 var(--px);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+.navbar-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  gap: 16px;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-icon {
+  width: 40px; height: 40px;
+  background: var(--navy);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-icon svg { width: 22px; height: 22px; fill: white; }
+.logo-name { font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; display: block; }
+.logo-tagline { font-size: 11px; color: var(--gray-text); display: block; }
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.nav-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--gray-text);
+  white-space: nowrap;
+}
+.pulse-dot {
+  width: 8px; height: 8px;
+  background: #22C55E;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.btn-devis {
+  background: var(--orange);
+  color: var(--white);
+  border: none; border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  display: flex; align-items: center; gap: 7px;
+  white-space: nowrap;
+  transition: background .15s;
+}
+.btn-devis:hover { background: var(--orange-hover); }
+.btn-devis svg { width: 15px; height: 15px; fill: white; }
+
+.btn-phone {
+  background: var(--navy);
+  color: var(--white);
+  border: none; border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 14px; font-weight: 600;
+  cursor: pointer; text-decoration: none;
+  display: flex; align-items: center; gap: 7px;
+  white-space: nowrap;
+  transition: background .15s;
+}
+.btn-phone:hover { background: var(--navy-mid); }
+.btn-phone svg { width: 15px; height: 15px; fill: white; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  padding: 80px var(--px) 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&w=1400');
+  background-size: cover;
+  background-position: center 30%;
+  opacity: 0.18;
+}
+.hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #FFFFFF; font-size: 12px; font-weight: 500;
+  padding: 6px 14px; border-radius: 20px; margin-bottom: 16px;
+}
+.hero h1 {
+  color: #FFFFFF;
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+.hero h1 span { color: #FF9A4D; }
+.hero-sub {
+  color: rgba(255,255,255,0.80);
+  font-size: 16px; line-height: 1.6;
+  margin-bottom: 28px;
+}
+.hero-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 420px; }
+.cta-call {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--orange); color: #FFFFFF;
+  border: none; border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 16px; font-weight: 700;
+  cursor: pointer; text-decoration: none; width: 100%;
+  transition: background .15s;
+}
+.cta-call:hover { background: var(--orange-hover); }
+.cta-call svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
+.cta-call-inner { display: flex; flex-direction: column; }
+.cta-call-sub { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.85); margin-top: 2px; }
+.cta-devis-hero {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: rgba(255,255,255,0.12); color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.3); border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 15px; font-weight: 600;
+  cursor: pointer; text-decoration: none; width: 100%;
+  transition: background .15s;
+}
+.cta-devis-hero:hover { background: rgba(255,255,255,0.20); }
+.cta-devis-hero svg { width: 18px; height: 18px; fill: white; }
+
+.reassurance {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+}
+.re-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: rgba(255,255,255,0.85);
+}
+.re-item svg { width: 14px; height: 14px; fill: #4ADE80; flex-shrink: 0; }
+
+/* Hero right: photo card */
+.hero-photo-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.hero-photo-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo-badge {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.hero-photo-badge-num { font-size: 22px; font-weight: 800; color: var(--navy); }
+.hero-photo-badge-label { font-size: 11px; color: var(--gray-text); line-height: 1.3; }
+
+/* ── RATING BANNER ── */
+.rating-banner {
+  background: #FFF8F3;
+  border-bottom: 1px solid #FFD9BA;
+  padding: 14px var(--px);
+}
+.rating-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.rating-num { font-size: 28px; font-weight: 800; color: var(--navy); }
+.rating-stars { color: #F59E0B; font-size: 18px; letter-spacing: 2px; }
+.rating-label { font-size: 13px; color: var(--gray-text); }
+.rating-sep { color: var(--gray-border); font-size: 20px; }
+.rating-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-left: auto; }
+.rating-badge-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; color: var(--text-mid); font-weight: 500;
+}
+.rating-badge-item svg { width: 18px; height: 18px; fill: var(--orange); }
+
+/* ── SECTIONS ── */
+.section { padding: 72px var(--px); }
+.section-alt { background: var(--gray-bg); }
+
+.section-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--orange); margin-bottom: 6px;
+}
+.section-title {
+  font-size: clamp(22px, 3vw, 32px); font-weight: 800;
+  color: var(--navy); line-height: 1.2; margin-bottom: 8px;
+}
+.section-lead {
+  font-size: 16px; color: var(--gray-text); line-height: 1.65;
+  max-width: 640px; margin-bottom: 40px;
+}
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.service-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 4px 20px rgba(232,100,10,0.12);
+  transform: translateY(-2px);
+}
+.service-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+}
+.service-icon svg { width: 26px; height: 26px; }
+.si-urgence { background: #FFF3EA; } .si-urgence svg { fill: var(--orange); }
+.si-reno { background: #EEF2FF; } .si-reno svg { fill: #4F46E5; }
+.si-chauffe { background: #FEF3C7; } .si-chauffe svg { fill: #D97706; }
+.si-general { background: #DCFCE7; } .si-general svg { fill: var(--green); }
+.service-name { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+.service-desc { font-size: 13px; color: var(--gray-text); line-height: 1.5; }
+.service-link {
+  font-size: 13px; color: var(--orange); font-weight: 600;
+  margin-top: 14px; display: flex; align-items: center; gap: 4px;
+}
+.service-link svg { width: 14px; height: 14px; fill: var(--orange); }
+
+/* ── INLINE CTA ── */
+.inline-cta {
+  background: #FFF3EA;
+  border-left: 4px solid var(--orange);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin-top: 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+}
+.inline-cta p { font-size: 15px; color: var(--text-mid); line-height: 1.5; }
+.inline-cta p strong { color: var(--text-dark); }
+.btn-cta-inline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--orange); color: #FFFFFF;
+  border: none; border-radius: 10px;
+  padding: 11px 20px; font-size: 14px; font-weight: 700;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background .15s;
+}
+.btn-cta-inline:hover { background: var(--orange-hover); }
+.btn-cta-inline svg { width: 16px; height: 16px; fill: white; }
+
+/* ── PHOTO + TEXT SECTIONS ── */
+.photo-text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.photo-text.reverse { direction: rtl; }
+.photo-text.reverse > * { direction: ltr; }
+.photo-block {
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  position: relative;
+}
+.photo-block img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+
+/* ── WHY ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.why-card {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.why-check {
+  width: 32px; height: 32px;
+  background: var(--green-bg); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.why-check svg { width: 17px; height: 17px; fill: var(--green); }
+.why-title { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.why-detail { font-size: 13px; color: var(--gray-text); line-height: 1.5; }
+
+/* ── ZONE ── */
+.zone-box {
+  background: var(--navy);
+  border-radius: 16px; padding: 32px;
+}
+.zone-box-title { color: #FFFFFF; font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+.zone-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.zone-pill {
+  background: rgba(255,255,255,0.12); color: #FFFFFF;
+  font-size: 13px; font-weight: 500;
+  padding: 7px 16px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.zone-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--orange); color: #FFFFFF;
+  border: none; border-radius: 10px;
+  padding: 13px 24px; font-size: 15px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  transition: background .15s;
+}
+.zone-cta-btn:hover { background: var(--orange-hover); }
+.zone-cta-btn svg { width: 18px; height: 18px; fill: white; }
+
+/* ── FOUNDER ── */
+.founder { display: flex; gap: 24px; align-items: flex-start; }
+.founder-avatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  color: #FFFFFF; font-size: 20px; font-weight: 800; flex-shrink: 0;
+  border: 3px solid var(--orange);
+}
+.founder-quote {
+  font-size: 16px; color: var(--text-mid);
+  line-height: 1.7; font-style: italic;
+  border-left: 3px solid var(--orange);
+  padding-left: 20px;
+}
+.founder-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-top: 12px; padding-left: 20px; }
+
+/* ── REVIEWS ── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.review-card {
+  background: var(--white); border: 1px solid var(--gray-border);
+  border-radius: 14px; padding: 20px;
+}
+.review-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.review-name { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+.review-stars { color: #F59E0B; font-size: 14px; }
+.review-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.6; }
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 800px; }
+.faq-item { border: 1px solid var(--gray-border); border-radius: 12px; overflow: hidden; }
+.faq-q {
+  background: var(--white); padding: 18px 20px;
+  font-size: 15px; font-weight: 600; color: var(--navy);
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; gap: 16px;
+}
+.faq-q svg { width: 18px; height: 18px; fill: var(--gray-text); flex-shrink: 0; transition: transform .2s; }
+.faq-item.open .faq-q svg { transform: rotate(180deg); }
+.faq-a {
+  background: var(--gray-bg); padding: 0 20px;
+  font-size: 14px; color: var(--text-mid); line-height: 1.65;
+  border-top: 1px solid var(--gray-border);
+  max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .2s;
+}
+.faq-item.open .faq-a { max-height: 200px; padding: 16px 20px; }
+
+/* ── PHOTO GALLERY in services area ── */
+.services-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+.service-photo {
+  border-radius: 12px; overflow: hidden; aspect-ratio: 4/3;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+.service-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s; }
+.service-photo:hover img { transform: scale(1.04); }
+.service-photo-label {
+  text-align: center; font-size: 12px; font-weight: 600;
+  color: var(--gray-text); margin-top: 8px;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background: var(--navy); padding: 80px var(--px); text-align: center;
+  position: relative; overflow: hidden;
+}
+.final-cta-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=1400');
+  background-size: cover; background-position: center;
+  opacity: 0.12;
+}
+.final-cta-inner { max-width: 640px; margin: 0 auto; position: relative; }
+.final-cta h2 { color: #FFFFFF; font-size: clamp(24px, 3vw, 36px); font-weight: 800; margin-bottom: 12px; }
+.final-cta p { color: rgba(255,255,255,0.75); font-size: 16px; margin-bottom: 32px; line-height: 1.6; }
+.final-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.final-btn-call {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--orange); color: #FFFFFF;
+  border: none; border-radius: 12px;
+  padding: 16px 32px; font-size: 17px; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  transition: background .15s;
+}
+.final-btn-call:hover { background: var(--orange-hover); }
+.final-btn-call svg { width: 22px; height: 22px; fill: white; }
+.final-btn-mail {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.12); color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.3); border-radius: 12px;
+  padding: 16px 28px; font-size: 15px; font-weight: 500;
+  cursor: pointer; text-decoration: none;
+  transition: background .15s;
+}
+.final-btn-mail:hover { background: rgba(255,255,255,0.20); }
+.final-btn-mail svg { width: 18px; height: 18px; fill: white; }
+
+/* ── FOOTER ── */
+footer {
+  background: #070F17; padding: 32px var(--px);
+  text-align: center; color: rgba(255,255,255,0.45);
+  font-size: 13px; line-height: 2;
+}
+footer a { color: rgba(255,255,255,0.60); text-decoration: none; }
+footer a:hover { color: var(--white); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+
+/* ── STICKY MOBILE BAR ── */
+.sticky-bar {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: #FFFFFF;
+  border-top: 1px solid var(--gray-border);
+  padding: 10px 16px 16px;
+  z-index: 999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.10);
+  gap: 10px;
+}
+.sticky-call {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--orange); color: #FFFFFF;
+  border: none; border-radius: 10px; padding: 13px;
+  font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none;
+  transition: background .15s;
+}
+.sticky-call:hover { background: var(--orange-hover); }
+.sticky-call svg { width: 18px; height: 18px; fill: white; }
+.sticky-devis {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--navy); color: #FFFFFF;
+  border: none; border-radius: 10px; padding: 13px;
+  font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none;
+  transition: background .15s;
+}
+.sticky-devis:hover { background: var(--navy-mid); }
+.sticky-devis svg { width: 17px; height: 17px; fill: white; }
+.sticky-spacer { height: 0; }
+
+/* ── DIVIDER ── */
+hr.div { border: none; border-top: 1px solid var(--gray-border); margin: 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-photo-card { max-width: 500px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .photo-text { grid-template-columns: 1fr; gap: 30px; }
+  .photo-text.reverse { direction: ltr; }
+}
+
+@media (max-width: 600px) {
+  :root { --px: 16px; }
+  .section { padding: 48px var(--px); }
+  .hero { padding: 48px var(--px) 48px; }
+  .services-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .service-card { padding: 16px 14px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .services-photos { grid-template-columns: 1fr 1fr; }
+  .nav-badge { display: none; }
+  .nav-actions .btn-phone { display: none; }
+  .final-btns { flex-direction: column; }
+  .final-btn-call, .final-btn-mail { width: 100%; justify-content: center; }
+  .sticky-bar { display: flex; }
+  .sticky-spacer { height: 72px; }
+  .inline-cta { flex-direction: column; }
+  .founder { flex-direction: column; }
+  .founder-avatar { align-self: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8 8 6 11 6 14a6 6 0 0 0 12 0c0-3-2-6-6-12z"/></svg>
+      </div>
+      <div>
+        <span class="logo-name">AQUAPURE Plomberie</span>
+        <span class="logo-tagline">Nice · Alpes-Maritimes (06) · Est du Var (83)</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <div class="nav-badge">
+        <span class="pulse-dot"></span>
+        Disponible 24h/24
+      </div>
+      <a href="mailto:contact@aquapureplomberie.fr" class="btn-devis">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8.82l8 5 8-5V18z"/></svg>
+        Devis gratuit
+      </a>
+      <a href="tel:0484350486" class="btn-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        04 84 35 04 86
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Disponible maintenant · 24h/24 – 7j/7
+      </div>
+      <h1>Plombier à Nice<br>et dans les <span>Alpes-Maritimes (06)</span></h1>
+      <p class="hero-sub">Fuite, canalisation bouchée, chauffe-eau en panne ? AQUAPURE intervient rapidement, de jour comme de nuit, dans tout le 06 et l'est du Var. Artisan local, 15 ans d'expérience, garanti décennale.</p>
+      <div class="hero-ctas">
+        <a href="tel:0484350486" class="cta-call">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <div class="cta-call-inner">
+            <span>Appeler maintenant — 04 84 35 04 86</span>
+            <span class="cta-call-sub">Réponse en quelques minutes · Intervention dans l'heure</span>
+          </div>
+        </a>
+        <a href="mailto:contact@aquapureplomberie.fr" class="cta-devis-hero">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+          Demander mon devis gratuit — sans engagement
+        </a>
+      </div>
+      <div class="reassurance">
+        <span class="re-item"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg>Intervention 24h/24 – 7j/7</span>
+        <span class="re-item"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg>Devis gratuit</span>
+        <span class="re-item"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg>Garantie décennale</span>
+        <span class="re-item"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg>Artisan local Nice</span>
+      </div>
+    </div>
+    <div>
+      <div class="hero-photo-card">
+        <img src="https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Plombier AQUAPURE au travail à Nice" loading="eager">
+        <div class="hero-photo-badge">
+          <div class="hero-photo-badge-num">4,9★</div>
+          <div class="hero-photo-badge-label">98 avis Google<br>vérifiés</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RATING BANNER -->
+<div class="rating-banner">
+  <div class="rating-inner">
+    <div>
+      <div class="rating-num">4,9 / 5</div>
+      <div class="rating-stars">★★★★★</div>
+      <div class="rating-label">98 avis Google vérifiés</div>
+    </div>
+    <div class="rating-sep">|</div>
+    <div class="rating-badges">
+      <div class="rating-badge-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm-2 15l-5-5 1.4-1.4L10 13.2l7.6-7.6L19 7l-9 9z"/></svg>
+        15 ans d'expérience
+      </div>
+      <div class="rating-badge-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm-2 15l-5-5 1.4-1.4L10 13.2l7.6-7.6L19 7l-9 9z"/></svg>
+        Garantie décennale
+      </div>
+      <div class="rating-badge-item">
+        <svg viewBox="0 0 24 24"><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm-2 15l-5-5 1.4-1.4L10 13.2l7.6-7.6L19 7l-9 9z"/></svg>
+        Artisan local basé à Nice
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Nos services</div>
+    <h2 class="section-title">4 domaines d'intervention en plomberie</h2>
+    <p class="section-lead">De l'urgence à la rénovation complète, AQUAPURE Plomberie couvre tous vos besoins à Nice et dans les Alpes-Maritimes.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon si-urgence">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+        </div>
+        <div class="service-name">Dépannage &amp; urgences 24h/24</div>
+        <div class="service-desc">Fuite d'eau, canalisation bouchée, WC / évier engorgé, chauffe-eau en panne. Intervention dans l'heure à Nice.</div>
+        <div class="service-link"><svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6V6z"/></svg>En savoir plus</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon si-reno">
+          <svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+        </div>
+        <div class="service-name">Rénovation salle de bain &amp; cuisine</div>
+        <div class="service-desc">Douche italienne, baignoire, WC suspendu, robinetterie, carrelage. Création ou rénovation complète, de A à Z.</div>
+        <div class="service-link"><svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6V6z"/></svg>Voir les rénovations</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon si-chauffe">
+          <svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+        </div>
+        <div class="service-name">Chauffe-eau &amp; ballon d'eau chaude</div>
+        <div class="service-desc">Installation, remplacement et entretien de chauffe-eaux électriques ou thermodynamiques. Conseil personnalisé.</div>
+        <div class="service-link"><svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6V6z"/></svg>Nos prestations</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon si-general">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <div class="service-name">Plomberie générale</div>
+        <div class="service-desc">Création ou modification de réseaux d'eau, pose de cuisine, évier, robinetterie, raccordements divers.</div>
+        <div class="service-link"><svg viewBox="0 0 24 24"><path d="M10 6l6 6-6 6V6z"/></svg>Tout savoir</div>
+      </div>
+    </div>
+
+    <!-- Photos services -->
+    <div class="services-photos">
+      <div>
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dépannage fuite plomberie Nice" loading="lazy">
+        </div>
+        <div class="service-photo-label">Dépannage urgence</div>
+      </div>
+      <div>
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Rénovation salle de bain Nice" loading="lazy">
+        </div>
+        <div class="service-photo-label">Rénovation salle de bain</div>
+      </div>
+      <div>
+        <div class="service-photo">
+          <img src="https://images.pexels.com/photos/6474543/pexels-photo-6474543.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Installation chauffe-eau plombier" loading="lazy">
+        </div>
+        <div class="service-photo-label">Installation chauffe-eau</div>
+      </div>
+    </div>
+
+    <div class="inline-cta">
+      <p>Un problème de plomberie à Nice ? <strong>Ne laissez pas la situation s'aggraver — appelez maintenant.</strong></p>
+      <a href="tel:0484350486" class="btn-cta-inline">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        04 84 35 04 86 — on arrive
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- WHY US -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-eyebrow">Pourquoi nous choisir</div>
+    <h2 class="section-title">Ce qui fait la différence</h2>
+    <p class="section-lead">AQUAPURE Plomberie, c'est un artisan local qui connaît Nice et le 06 comme sa poche — avec les certifications, l'équipe et la disponibilité qui vont avec.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-check"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg></div>
+        <div>
+          <div class="why-title">15 ans d'expérience dans la région niçoise</div>
+          <div class="why-detail">Mehdi Van Ardenne et son équipe connaissent parfaitement le 06 et l'est du Var.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-check"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg></div>
+        <div>
+          <div class="why-title">Intervention rapide, même la nuit et le week-end</div>
+          <div class="why-detail">Pour les urgences à Nice, nous nous efforçons d'intervenir dans l'heure.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-check"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg></div>
+        <div>
+          <div class="why-title">Devis gratuit, clair, sans surprise sur la facture</div>
+          <div class="why-detail">Chaque devis est détaillé et sans engagement. La facture correspond toujours.</div>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-check"><svg viewBox="0 0 24 24"><path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z"/></svg></div>
+        <div>
+          <div class="why-title">Travaux couverts par la garantie décennale</div>
+          <div class="why-detail">Artisan assuré. Particuliers, professionnels, syndics et AirBnB bienvenus.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE + FOUNDER -->
+<section class="section">
+  <div class="section-inner">
+    <div class="photo-text">
+      <div>
+        <div class="section-eyebrow">Zone d'intervention</div>
+        <h2 class="section-title">Nice et tout le 06 – Est du Var</h2>
+        <p class="section-lead" style="margin-bottom:24px;">Basés au 29 Boulevard Victor Hugo à Nice, nous couvrons toute la métropole et ses environs. Un doute sur votre secteur ? Appelez-nous.</p>
+        <div class="zone-box">
+          <div class="zone-box-title">Nous intervenons dans :</div>
+          <div class="zone-pills">
+            <span class="zone-pill">Nice</span>
+            <span class="zone-pill">Antibes</span>
+            <span class="zone-pill">Cannes</span>
+            <span class="zone-pill">Menton</span>
+            <span class="zone-pill">Cagnes-sur-Mer</span>
+            <span class="zone-pill">Villeneuve-Loubet</span>
+            <span class="zone-pill">Saint-Laurent-du-Var</span>
+            <span class="zone-pill">Est du Var (83)</span>
+          </div>
+          <a href="tel:0484350486" class="zone-cta-btn">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            Vérifier votre secteur — appelez-nous
+          </a>
+        </div>
+      </div>
+      <div class="photo-block">
+        <img src="https://images.pexels.com/photos/8961342/pexels-photo-8961342.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Plombier professionnel Nice Alpes-Maritimes" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- FOUNDER -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="photo-text reverse">
+      <div class="photo-block">
+        <img src="https://images.pexels.com/photos/8961343/pexels-photo-8961343.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Artisan plombier Nice équipe AQUAPURE" loading="lazy">
+      </div>
+      <div>
+        <div class="section-eyebrow">Le fondateur</div>
+        <h2 class="section-title">Faisons connaissance</h2>
+        <div class="founder">
+          <div class="founder-avatar">MV</div>
+          <div>
+            <p class="founder-quote">« Après 15 ans de plomberie dans la région niçoise et dans le Var, je peux vous dire avec sincérité que ce métier reste ma passion. Mon équipe et moi nous engageons chaque jour à vous offrir un service honnête et de qualité, bien au-delà du simple dépannage. À Nice, nous ne sommes pas simplement votre plombier : nous sommes votre partenaire de confiance. »</p>
+            <div class="founder-name">— Mehdi Van Ardenne, fondateur d'AQUAPURE Plomberie</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Avis clients</div>
+    <h2 class="section-title">Ce que disent nos clients à Nice</h2>
+    <p class="section-lead">Plus de 98 avis Google avec une note moyenne de 4,9/5. Voici quelques témoignages récents.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-top">
+          <span class="review-name">Sophie M.</span>
+          <span class="review-stars">★★★★★</span>
+        </div>
+        <p class="review-text">Intervention en moins d'une heure pour une fuite importante. Travail propre, tarif honnête. Je recommande sans hésiter !</p>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <span class="review-name">Thomas R.</span>
+          <span class="review-stars">★★★★★</span>
+        </div>
+        <p class="review-text">Rénovation complète de notre salle de bain. Résultat impeccable, délais respectés. Mehdi est un vrai professionnel.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <span class="review-name">Isabelle C.</span>
+          <span class="review-stars">★★★★★</span>
+        </div>
+        <p class="review-text">Chauffe-eau remplacé le soir même, un dimanche. Prix correct et travail soigné. Merci AQUAPURE !</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <button style="display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--gray-border);border-radius:10px;padding:11px 22px;font-size:14px;font-weight:500;color:var(--navy);cursor:pointer;">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        Voir tous nos avis Google
+      </button>
+    </div>
+    <div class="inline-cta">
+      <p>Rejoignez nos clients satisfaits à Nice. <strong>Confiez-nous votre installation.</strong></p>
+      <a href="tel:0484350486" class="btn-cta-inline">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Appeler AQUAPURE maintenant
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Questions fréquentes</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Êtes-vous disponibles la nuit et le week-end ?<svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        <div class="faq-a">Oui, nous intervenons 24h/24 et 7j/7 dans tout le 06 pour les urgences, y compris les jours fériés.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Le devis est-il vraiment gratuit ?<svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        <div class="faq-a">Oui, chaque devis est gratuit, détaillé et sans engagement. Aucune surprise sur la facture finale.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Quels sont vos délais d'intervention à Nice ?<svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        <div class="faq-a">Pour une urgence à Nice, nous nous efforçons d'intervenir dans l'heure. En dehors de la ville, comptez 1h30 selon le secteur.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Êtes-vous assurés et couverts ?<svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        <div class="faq-a">Oui, tous nos travaux sont couverts par notre assurance décennale. Vous êtes protégés pendant 10 ans après l'intervention.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Intervenez-vous pour les syndics et AirBnB ?<svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
+        <div class="faq-a">Absolument. Nous travaillons avec des particuliers, des professionnels, des syndics et des propriétaires de locations saisonnières.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-inner">
+    <h2>Besoin d'un plombier à Nice ?</h2>
+    <p>Un problème de plomberie n'attend pas. Appelez AQUAPURE pour une intervention rapide et un devis gratuit — 7j/7, 24h/24.</p>
+    <div class="final-btns">
+      <a href="tel:0484350486" class="final-btn-call">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        04 84 35 04 86
+      </a>
+      <a href="mailto:contact@aquapureplomberie.fr" class="final-btn-mail">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8.82l8 5 8-5V18z"/></svg>
+        contact@aquapureplomberie.fr
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <strong style="color:rgba(255,255,255,0.7);">AQUAPURE Plomberie</strong><br>
+    29 Boulevard Victor Hugo, 06000 Nice<br>
+    Alpes-Maritimes (06) · Est du Var (83) · 7j/7 · 24h/24<br>
+    Artisan certifié · Garantie décennale · 15 ans d'expérience<br>
+    <a href="tel:0484350486">04 84 35 04 86</a> · <a href="mailto:contact@aquapureplomberie.fr">contact@aquapureplomberie.fr</a>
+  </div>
+</footer>
+
+<div class="sticky-spacer"></div>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <a href="tel:0484350486" class="sticky-call">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    Appeler
+  </a>
+  <a href="mailto:contact@aquapureplomberie.fr" class="sticky-devis">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+    Devis gratuit
+  </a>
+</div>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
