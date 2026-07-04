@@ -14,6 +14,8 @@ export default function ChauffeEauPage() {
       h1="Installation & dépannage chauffe-eau à Nice - Expert ballon d'eau chaude"
       subtitle="Expert chauffe-eau à Nice : installation électrique et thermodynamique, remplacement, entretien, dépannage. Conseils personnalisés et devis gratuit."
       introH2="Le ballon d'eau chaude est un équipement essentiel de votre logement."
+      image="/photos/chauffe-eau.webp"
+      imageAlt="Installation de chauffe-eau à Nice par un plombier AQUAPURE — électrique et thermodynamique"
       sections={[
         {
           h2: "Installation chauffe-eau électrique / thermodynamique",

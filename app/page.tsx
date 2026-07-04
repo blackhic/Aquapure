@@ -84,28 +84,11 @@ const PRICING = [
   { name: "Déplacement / diagnostic", prefix: "", price: "XX €" },
 ];
 
-// Placeholders Pexels — à remplacer par de vraies photos de chantier.
 const REALISATIONS = [
   {
-    label: "Rénovation salle de bain — Nice Cimiez",
-    before:
-      "https://images.pexels.com/photos/6474543/pexels-photo-6474543.jpeg?auto=compress&cs=tinysrgb&w=600",
-    after:
-      "https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    label: "Remplacement chauffe-eau — Cagnes-sur-Mer",
-    before:
-      "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=600",
-    after:
-      "https://images.pexels.com/photos/8961342/pexels-photo-8961342.jpeg?auto=compress&cs=tinysrgb&w=600",
-  },
-  {
-    label: "Réfection sanitaires — Antibes",
-    before:
-      "https://images.pexels.com/photos/8961343/pexels-photo-8961343.jpeg?auto=compress&cs=tinysrgb&w=600",
-    after:
-      "https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&w=600",
+    label: "Rénovation complète de salle de bain — Nice",
+    before: "/photos/avant-renovation.webp",
+    after: "/photos/apres-renovation.webp",
   },
 ];
 
@@ -216,8 +199,10 @@ export default function Home() {
           <div>
             <div className="hero-photo-card">
               <img
-                src="https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Plombier AQUAPURE au travail à Nice"
+                src="/photos/hero-plombier-nice.webp"
+                alt="Plombier AQUAPURE à Nice, artisan et van de l'entreprise dans les Alpes-Maritimes (06)"
+                width={1024}
+                height={1024}
                 loading="eager"
               />
               <div className="hero-photo-badge">
@@ -360,8 +345,10 @@ export default function Home() {
             <div>
               <div className="service-photo">
                 <img
-                  src="https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Dépannage fuite plomberie Nice"
+                  src="/photos/depannage-urgence.webp"
+                  alt="Plombier AQUAPURE réparant une fuite d'eau en urgence à Nice"
+                  width={900}
+                  height={900}
                   loading="lazy"
                 />
               </div>
@@ -370,8 +357,10 @@ export default function Home() {
             <div>
               <div className="service-photo">
                 <img
-                  src="https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Rénovation salle de bain Nice"
+                  src="/photos/renovation-salle-de-bain.webp"
+                  alt="Rénovation de salle de bain à Nice par AQUAPURE Plomberie"
+                  width={900}
+                  height={900}
                   loading="lazy"
                 />
               </div>
@@ -380,8 +369,10 @@ export default function Home() {
             <div>
               <div className="service-photo">
                 <img
-                  src="https://images.pexels.com/photos/6474543/pexels-photo-6474543.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Installation chauffe-eau plombier"
+                  src="/photos/chauffe-eau.webp"
+                  alt="Installation de chauffe-eau à Nice par un plombier AQUAPURE"
+                  width={900}
+                  height={900}
                   loading="lazy"
                 />
               </div>
@@ -471,11 +462,12 @@ export default function Home() {
             {REALISATIONS.map((r) => (
               <div className="ba-card" key={r.label}>
                 <div className="ba-images">
-                  {/* TODO CLIENT: vraies photos chantier */}
                   <figure className="ba-img">
                     <img
                       src={r.before}
-                      alt={`Avant — ${r.label}`}
+                      alt="Salle de bain à Nice avant rénovation par AQUAPURE Plomberie"
+                      width={680}
+                      height={680}
                       loading="lazy"
                     />
                     <figcaption>Avant</figcaption>
@@ -483,7 +475,9 @@ export default function Home() {
                   <figure className="ba-img">
                     <img
                       src={r.after}
-                      alt={`Après — ${r.label}`}
+                      alt="Salle de bain à Nice après rénovation par AQUAPURE Plomberie"
+                      width={680}
+                      height={680}
                       loading="lazy"
                     />
                     <figcaption>Après</figcaption>
@@ -611,8 +605,10 @@ export default function Home() {
             </div>
             <div className="photo-block">
               <img
-                src="https://images.pexels.com/photos/8961342/pexels-photo-8961342.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Plombier professionnel Nice Alpes-Maritimes"
+                src="/photos/plomberie-piscine-villa.webp"
+                alt="Plomberie de villa avec piscine à Nice et dans le 06 — AQUAPURE Plomberie"
+                width={900}
+                height={900}
                 loading="lazy"
               />
             </div>
@@ -649,9 +645,12 @@ export default function Home() {
         <div className="section-inner">
           <div className="photo-text reverse">
             <div className="photo-block">
+              {/* TODO CLIENT: remplacer par une vraie photo de Mehdi Van Ardenne / de l'équipe */}
               <img
-                src="https://images.pexels.com/photos/8961343/pexels-photo-8961343.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Artisan plombier Nice équipe AQUAPURE"
+                src="/photos/plomberie-generale.webp"
+                alt="Artisan plombier AQUAPURE au travail à Nice"
+                width={900}
+                height={900}
                 loading="lazy"
               />
             </div>

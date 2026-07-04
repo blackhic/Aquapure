@@ -2,7 +2,13 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import StickyBar from "./StickyBar";
 
-export type ServiceSection = { id?: string; h2: string; text?: string };
+export type ServiceSection = {
+  id?: string;
+  h2: string;
+  text?: string;
+  image?: string;
+  imageAlt?: string;
+};
 
 type ServicePageProps = {
   eyebrow: string;
@@ -10,6 +16,8 @@ type ServicePageProps = {
   subtitle: string;
   introH2: string;
   introText?: string;
+  image?: string;
+  imageAlt?: string;
   sections: ServiceSection[];
 };
 
@@ -19,6 +27,8 @@ export default function ServicePage({
   subtitle,
   introH2,
   introText,
+  image,
+  imageAlt,
   sections,
 }: ServicePageProps) {
   return (
@@ -58,10 +68,33 @@ export default function ServicePage({
           <h2 className="section-title">{introH2}</h2>
           {introText ? <p className="section-lead">{introText}</p> : null}
 
+          {image ? (
+            <div className="photo-block service-hero-photo">
+              <img
+                src={image}
+                alt={imageAlt}
+                width={900}
+                height={900}
+                loading="lazy"
+              />
+            </div>
+          ) : null}
+
           {sections.map((s) => (
             <div key={s.h2} id={s.id} className="service-block">
               <h2 className="section-title">{s.h2}</h2>
               {s.text ? <p className="section-lead">{s.text}</p> : null}
+              {s.image ? (
+                <div className="photo-block section-photo-block">
+                  <img
+                    src={s.image}
+                    alt={s.imageAlt}
+                    width={900}
+                    height={900}
+                    loading="lazy"
+                  />
+                </div>
+              ) : null}
             </div>
           ))}
 

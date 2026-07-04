@@ -15,6 +15,8 @@ export default function PlomberieGeneralePage() {
       subtitle="Tous travaux de plomberie à Nice : création réseaux d'eau, pose cuisine, robinetterie, raccordements. Plombier professionnel qualifié. Devis gratuit."
       introH2="Travaux de plomberie générale dans le 06 et le 83"
       introText="Respect des normes DTU, NF ; matériaux de qualité."
+      image="/photos/plomberie-generale.webp"
+      imageAlt="Plombier AQUAPURE installant un robinet de cuisine et raccordant les tuyaux à Nice"
       sections={[
         {
           h2: "Création ou modification de réseaux d'eau",

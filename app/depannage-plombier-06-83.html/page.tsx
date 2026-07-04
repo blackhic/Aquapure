@@ -15,6 +15,8 @@ export default function DepannagePage() {
       subtitle="Plombier d'urgence à Nice et Alpes-Maritimes 24h/24, 7j/7. Fuite d'eau, canalisation bouchée, WC, chauffe-eau en panne. Intervention rapide garantie."
       introH2="Intervention rapide en cas d'urgence"
       introText="Service 24h/24, 7j/7, jours fériés inclus sur Nice, tout le 06 et le Var (83)."
+      image="/photos/depannage-urgence.webp"
+      imageAlt="Plombier AQUAPURE réparant une fuite d'eau en urgence à Nice"
       sections={[
         {
           id: "fuite-d-eau",
@@ -25,6 +27,9 @@ export default function DepannagePage() {
           id: "recherche-de-fuite",
           h2: "Recherche de fuite",
           text: "Détection non destructive : détecteurs acoustiques électroniques, caméras thermiques, gaz traceur, électro-acoustique.",
+          image: "/photos/recherche-de-fuite.webp",
+          imageAlt:
+            "Recherche de fuite non destructive à Nice avec détecteur acoustique et caméra thermique — AQUAPURE",
         },
         {
           id: "canalisation-bouchee",
