@@ -28,6 +28,111 @@ const FAQ_ITEMS = [
   },
 ];
 
+const PROCESS_STEPS = [
+  {
+    title: "Appel",
+    text: "Vous nous appelez, on cerne votre besoin et on vous oriente immédiatement.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Diagnostic sur place",
+    text: "Un plombier se déplace et identifie précisément l'origine du problème.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Devis gratuit",
+    text: "Un devis clair et détaillé, sans engagement, avant toute intervention.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Intervention",
+    text: "On réalise les travaux proprement, avec du matériel de qualité.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Garantie décennale",
+    text: "Vos travaux sont couverts par notre garantie décennale et notre assurance.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+      </svg>
+    ),
+  },
+];
+
+// Fourchettes indicatives — valeurs à confirmer par le client.
+const PRICING = [
+  { name: "Débouchage canalisation", prefix: "à partir de", price: "XX €" },
+  { name: "Recherche de fuite", prefix: "à partir de", price: "XX €" },
+  { name: "Remplacement chauffe-eau", prefix: "à partir de", price: "XX €" },
+  { name: "Déplacement / diagnostic", prefix: "", price: "XX €" },
+];
+
+// Placeholders Pexels — à remplacer par de vraies photos de chantier.
+const REALISATIONS = [
+  {
+    label: "Rénovation salle de bain — Nice Cimiez",
+    before:
+      "https://images.pexels.com/photos/6474543/pexels-photo-6474543.jpeg?auto=compress&cs=tinysrgb&w=600",
+    after:
+      "https://images.pexels.com/photos/6474471/pexels-photo-6474471.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    label: "Remplacement chauffe-eau — Cagnes-sur-Mer",
+    before:
+      "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg?auto=compress&cs=tinysrgb&w=600",
+    after:
+      "https://images.pexels.com/photos/8961342/pexels-photo-8961342.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+  {
+    label: "Réfection sanitaires — Antibes",
+    before:
+      "https://images.pexels.com/photos/8961343/pexels-photo-8961343.jpeg?auto=compress&cs=tinysrgb&w=600",
+    after:
+      "https://images.pexels.com/photos/7859953/pexels-photo-7859953.jpeg?auto=compress&cs=tinysrgb&w=600",
+  },
+];
+
+// Slugs prêts pour de futures pages /plombier-[ville].
+const CITIES = [
+  { name: "Nice", slug: "nice" },
+  { name: "Cannes", slug: "cannes" },
+  { name: "Antibes", slug: "antibes" },
+  { name: "Grasse", slug: "grasse" },
+  { name: "Cagnes-sur-Mer", slug: "cagnes-sur-mer" },
+  { name: "Saint-Laurent-du-Var", slug: "saint-laurent-du-var" },
+  { name: "Vence", slug: "vence" },
+  { name: "Menton", slug: "menton" },
+  { name: "Monaco", slug: "monaco" },
+  { name: "Toulon", slug: "toulon" },
+  { name: "Est du Var (83)", slug: "est-du-var" },
+];
+
+const TRUST_BADGES = [
+  { label: "Note Google 4,8/5", star: true },
+  { label: "Garantie décennale" },
+  { label: "Assurance RC Pro" },
+  { label: "SIRET 934 336 637 00012" },
+  { label: "15 ans d'expérience" },
+  { label: "Intervention 24h/24" },
+];
+
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -116,7 +221,7 @@ export default function Home() {
                 loading="eager"
               />
               <div className="hero-photo-badge">
-                <div className="hero-photo-badge-num">4,9★</div>
+                <div className="hero-photo-badge-num">4,8★</div>
                 <div className="hero-photo-badge-label">
                   98 avis Google
                   <br />
@@ -132,7 +237,7 @@ export default function Home() {
       <div className="rating-banner">
         <div className="rating-inner">
           <div>
-            <div className="rating-num">4,9 / 5</div>
+            <div className="rating-num">4,8 / 5</div>
             <div className="rating-stars">★★★★★</div>
             <div className="rating-label">98 avis Google vérifiés</div>
           </div>
@@ -301,6 +406,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NOTRE PROCESSUS */}
+      <section className="section section-alt">
+        <div className="section-inner">
+          <div className="section-eyebrow">Notre méthode</div>
+          <h2 className="section-title">Comment se passe une intervention</h2>
+          <p className="section-lead">
+            De votre appel à la garantie, un déroulé simple et transparent en 5
+            étapes.
+          </p>
+          <div className="process-grid">
+            {PROCESS_STEPS.map((step, i) => (
+              <div className="process-step" key={step.title}>
+                <div className="process-num">{i + 1}</div>
+                <div className="process-icon">{step.icon}</div>
+                <div className="process-title">{step.title}</div>
+                <div className="process-text">{step.text}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TARIFS INDICATIFS */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-eyebrow">Tarifs</div>
+          <h2 className="section-title">Tarifs indicatifs</h2>
+          <p className="section-lead">
+            Des fourchettes pour vous situer. Le prix exact est toujours confirmé
+            par devis avant l&apos;intervention.
+          </p>
+          <div className="pricing-grid">
+            {PRICING.map((p) => (
+              <div className="pricing-card" key={p.name}>
+                <div className="pricing-name">{p.name}</div>
+                <div className="pricing-price">
+                  {p.prefix ? `${p.prefix} ` : ""}
+                  {/* TODO CLIENT: prix à valider */}
+                  <span>{p.price}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="pricing-note">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm-2 15l-5-5 1.4-1.4L10 13.2l7.6-7.6L19 7l-9 9z" />
+            </svg>
+            Devis gratuit et sans engagement — tarif confirmé avant toute
+            intervention.
+          </p>
+        </div>
+      </section>
+
+      {/* RÉALISATIONS AVANT / APRÈS */}
+      <section className="section section-alt">
+        <div className="section-inner">
+          <div className="section-eyebrow">Réalisations</div>
+          <h2 className="section-title">Avant / après</h2>
+          <p className="section-lead">
+            Quelques chantiers récents à Nice et dans le 06.
+          </p>
+          <div className="ba-grid">
+            {REALISATIONS.map((r) => (
+              <div className="ba-card" key={r.label}>
+                <div className="ba-images">
+                  {/* TODO CLIENT: vraies photos chantier */}
+                  <figure className="ba-img">
+                    <img
+                      src={r.before}
+                      alt={`Avant — ${r.label}`}
+                      loading="lazy"
+                    />
+                    <figcaption>Avant</figcaption>
+                  </figure>
+                  <figure className="ba-img">
+                    <img
+                      src={r.after}
+                      alt={`Après — ${r.label}`}
+                      loading="lazy"
+                    />
+                    <figcaption>Après</figcaption>
+                  </figure>
+                </div>
+                <div className="ba-label">{r.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <hr className="div" />
 
       {/* WHY US */}
@@ -427,6 +622,28 @@ export default function Home() {
 
       <hr className="div" />
 
+      {/* VILLES DESSERVIES */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="section-eyebrow">Villes desservies</div>
+          <h2 className="section-title">
+            Votre plombier dans tout le 06 et l&apos;est du Var
+          </h2>
+          <p className="section-lead">
+            Nous intervenons à Nice et dans les communes voisines des
+            Alpes-Maritimes et du Var.
+          </p>
+          <div className="cities-pills">
+            {/* TODO: futures pages locales par ville (/plombier-[ville]) — liens inactifs pour l'instant */}
+            {CITIES.map((city) => (
+              <span className="city-pill" key={city.slug}>
+                {city.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FOUNDER */}
       <section className="section section-alt">
         <div className="section-inner">
@@ -468,7 +685,7 @@ export default function Home() {
           <div className="section-eyebrow">Avis clients</div>
           <h2 className="section-title">Ce que disent nos clients à Nice</h2>
           <p className="section-lead">
-            Plus de 98 avis Google avec une note moyenne de 4,9/5. Voici quelques
+            Plus de 98 avis Google avec une note moyenne de 4,8/5. Voici quelques
             témoignages récents.
           </p>
           <div className="reviews-grid">
@@ -592,6 +809,26 @@ export default function Home() {
               contact@aquapureplomberie.fr
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* BANDEAU RÉASSURANCE / BADGES */}
+      <section className="trust-band">
+        <div className="trust-inner">
+          {TRUST_BADGES.map((b) => (
+            <div className="trust-item" key={b.label}>
+              {b.star ? (
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm-2 15l-5-5 1.4-1.4L10 13.2l7.6-7.6L19 7l-9 9z" />
+                </svg>
+              )}
+              <span>{b.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
