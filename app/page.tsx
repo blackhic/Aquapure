@@ -77,12 +77,21 @@ const PROCESS_STEPS = [
   },
 ];
 
-// Fourchettes indicatives — valeurs à confirmer par le client.
+// TARIFS PROVISOIRES — à confirmer par Mehdi.
+// Calés sur le marché plomberie France / PACA 2025-2026, format « à partir de »
+// (prudent). Montants à ajuster ICI dès validation du client (source unique).
 const PRICING = [
-  { name: "Débouchage canalisation", prefix: "à partir de", price: "XX €" },
-  { name: "Recherche de fuite", prefix: "à partir de", price: "XX €" },
-  { name: "Remplacement chauffe-eau", prefix: "à partir de", price: "XX €" },
-  { name: "Déplacement / diagnostic", prefix: "", price: "XX €" },
+  { name: "Déplacement + diagnostic", prefix: "à partir de", price: "59 €" },
+  { name: "Débouchage / dégorgement", prefix: "à partir de", price: "89 €" },
+  { name: "Recherche de fuite", prefix: "à partir de", price: "149 €" },
+  { name: "Remplacement WC", prefix: "à partir de", price: "149 €" },
+  { name: "Robinetterie / mitigeur", prefix: "à partir de", price: "89 €" },
+  {
+    name: "Remplacement chauffe-eau électrique",
+    prefix: "à partir de",
+    price: "790 €",
+  },
+  { name: "Main-d'œuvre (taux horaire)", prefix: "à partir de", price: "49 €/h" },
 ];
 
 const REALISATIONS = [
@@ -436,7 +445,6 @@ export default function Home() {
                 <div className="pricing-name">{p.name}</div>
                 <div className="pricing-price">
                   {p.prefix ? `${p.prefix} ` : ""}
-                  {/* TODO CLIENT: prix à valider */}
                   <span>{p.price}</span>
                 </div>
               </div>
@@ -449,6 +457,19 @@ export default function Home() {
             Devis gratuit et sans engagement — tarif confirmé avant toute
             intervention.
           </p>
+          <p className="pricing-legal">
+            Tarifs indicatifs TTC, hors pièces et fournitures. Majoration
+            possible en urgence (nuit, week-end, jours fériés). Seul le devis
+            gratuit personnalisé fait foi.
+          </p>
+          <div className="pricing-cta">
+            <Link href="/devis" className="btn-cta-inline">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+              </svg>
+              Demander mon devis gratuit
+            </Link>
+          </div>
         </div>
       </section>
 
