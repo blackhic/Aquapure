@@ -109,7 +109,7 @@ const CITIES = [
 ];
 
 const TRUST_BADGES = [
-  { label: "Note Google 4,8/5", star: true },
+  { label: "Note Google 5,0/5", star: true },
   { label: "Garantie décennale" },
   { label: "Assurance RC Pro" },
   { label: "SIRET 934 336 637 00012" },
@@ -155,8 +155,8 @@ export default function Home() {
                 <span className="hero-rating-stars" aria-hidden="true">
                   ★★★★★
                 </span>
-                <strong>4,8/5</strong>
-                <span className="hero-rating-count">· 98 avis Google</span>
+                <strong>5,0/5</strong>
+                <span className="hero-rating-count">· 29 avis Google</span>
               </div>
             </div>
             <h1>
@@ -223,9 +223,9 @@ export default function Home() {
       <div className="rating-banner">
         <div className="rating-inner">
           <div>
-            <div className="rating-num">4,8 / 5</div>
+            <div className="rating-num">5,0 / 5</div>
             <div className="rating-stars">★★★★★</div>
-            <div className="rating-label">98 avis Google vérifiés</div>
+            <div className="rating-label">29 avis Google vérifiés</div>
           </div>
           <div className="rating-sep">|</div>
           <div className="rating-badges">
@@ -685,7 +685,7 @@ export default function Home() {
           <div className="section-eyebrow">Avis clients</div>
           <h2 className="section-title">Ce que disent nos clients à Nice</h2>
           <p className="section-lead">
-            Plus de 98 avis Google avec une note moyenne de 4,8/5. Voici quelques
+            Plus de 29 avis Google avec une note moyenne de 5,0/5. Voici quelques
             témoignages récents.
           </p>
           <div className="reviews-grid">
