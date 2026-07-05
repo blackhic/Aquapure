@@ -144,12 +144,20 @@ export default function Home() {
 
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg-img"></div>
         <div className="hero-inner">
           <div className="hero-content">
-            <div className="hero-badge">
-              <span className="pulse-dot"></span>
-              Disponible maintenant · 24h/24 – 7j/7
+            <div className="hero-badges">
+              <div className="hero-badge">
+                <span className="pulse-dot"></span>
+                Disponible maintenant · 24h/24 – 7j/7
+              </div>
+              <div className="hero-rating">
+                <span className="hero-rating-stars" aria-hidden="true">
+                  ★★★★★
+                </span>
+                <strong>4,8/5</strong>
+                <span className="hero-rating-count">· 98 avis Google</span>
+              </div>
             </div>
             <h1>
               Plombier à Nice
@@ -206,25 +214,6 @@ export default function Home() {
                 </svg>
                 Artisan local Nice
               </span>
-            </div>
-          </div>
-          <div>
-            <div className="hero-photo-card">
-              <img
-                src="/photos/hero-plombier-nice.webp"
-                alt="Plombier AQUAPURE à Nice, artisan et van de l'entreprise dans les Alpes-Maritimes (06)"
-                width={1024}
-                height={1024}
-                loading="eager"
-              />
-              <div className="hero-photo-badge">
-                <div className="hero-photo-badge-num">4,8★</div>
-                <div className="hero-photo-badge-label">
-                  98 avis Google
-                  <br />
-                  vérifiés
-                </div>
-              </div>
             </div>
           </div>
         </div>
