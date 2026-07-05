@@ -953,8 +953,229 @@ hr.div { border: none; border-top: 1px solid var(--gray-border); margin: 0; }
 
 .admin-logout:disabled { opacity: 0.6; cursor: not-allowed; }
 
-.admin-shell-placeholder {
+.admin-shell-alert {
   margin-top: 28px;
+  background: #FEE2E2;
+  color: #B91C1C;
+  border: 1px solid #FCA5A5;
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 15px;
+}
+
+/* Filtres */
+.admin-filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 20px;
+}
+
+.admin-filtre {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.admin-filtre:hover { background: var(--gray-bg); }
+
+.admin-filtre.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+.admin-filtre-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  background: var(--gray-bg);
+  color: var(--gray-text);
+}
+
+.admin-filtre.active .admin-filtre-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+}
+
+/* Liste */
+.admin-devis-empty {
+  margin-top: 8px;
   font-size: 15px;
   color: var(--gray-text);
+}
+
+.admin-devis-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.admin-devis-card {
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.admin-devis-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-devis-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.admin-badge.urgence { background: #FEE2E2; color: #B91C1C; }
+.admin-badge.statut.nouveau { background: #FFF3EA; color: var(--orange); }
+.admin-badge.statut.traite { background: var(--gray-bg); color: var(--gray-text); }
+
+.admin-devis-date {
+  font-size: 13px;
+  color: var(--gray-text);
+  white-space: nowrap;
+}
+
+.admin-devis-main {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.admin-devis-nom {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.admin-devis-type {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--orange);
+}
+
+.admin-devis-message {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-mid);
+  white-space: pre-wrap;
+}
+
+.admin-devis-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px 20px;
+  margin: 16px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--gray-border);
+}
+
+.admin-devis-meta dt {
+  font-size: 12px;
+  color: var(--gray-text);
+  margin-bottom: 2px;
+}
+
+.admin-devis-meta dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  word-break: break-word;
+}
+
+.admin-devis-meta a { color: var(--navy); text-decoration: none; }
+.admin-devis-meta a:hover { color: var(--orange); text-decoration: underline; }
+.admin-devis-vide { color: var(--gray-text); font-weight: 400; }
+
+.admin-devis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.admin-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.admin-action.call { background: var(--navy); color: var(--white); }
+.admin-action.call:hover { background: var(--navy-mid); }
+.admin-action.whatsapp { background: #25D366; color: var(--white); }
+.admin-action.whatsapp:hover { filter: brightness(0.95); }
+.admin-action.mail {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--gray-border);
+}
+.admin-action.mail:hover { background: var(--gray-bg); }
+
+.admin-action.toggle {
+  margin-left: auto;
+  background: var(--orange);
+  color: var(--white);
+}
+.admin-action.toggle:hover:not(:disabled) { background: var(--orange-hover); }
+.admin-action.toggle.done {
+  background: var(--white);
+  color: var(--gray-text);
+  border-color: var(--gray-border);
+}
+.admin-action.toggle.done:hover:not(:disabled) { background: var(--gray-bg); }
+.admin-action.toggle:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.admin-devis-error {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #B91C1C;
+}
+
+@media (max-width: 600px) {
+  .admin-action.toggle { margin-left: 0; }
 }
