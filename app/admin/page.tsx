@@ -1,5 +1,6 @@
 import { getSupabaseAdmin } from "@/app/lib/supabase";
 import AdminLogoutButton from "@/app/components/AdminLogoutButton";
+import AdminNav from "@/app/components/AdminNav";
 import AdminDevisTable, { type Devis } from "@/app/components/AdminDevisTable";
 
 // Toujours rendu à la demande (données Supabase à jour à chaque affichage).
@@ -34,6 +35,8 @@ export default async function AdminPage() {
         <h1 className="admin-shell-title">Espace admin — AQUAPURE</h1>
         <AdminLogoutButton />
       </header>
+
+      <AdminNav active="devis" />
 
       {error ? (
         <div className="admin-shell-alert" role="alert">

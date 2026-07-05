@@ -1176,6 +1176,117 @@ hr.div { border: none; border-top: 1px solid var(--gray-border); margin: 0; }
   color: #B91C1C;
 }
 
+.admin-action.delete {
+  background: var(--white);
+  color: #B91C1C;
+  border-color: #FCA5A5;
+}
+.admin-action.delete:hover:not(:disabled) { background: #FEE2E2; }
+.admin-action.delete:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Navigation admin (onglets) */
+.admin-nav {
+  display: flex;
+  gap: 4px;
+  margin-top: 20px;
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.admin-nav-link {
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray-text);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.admin-nav-link:hover { color: var(--navy); }
+
+.admin-nav-link.active {
+  color: var(--navy);
+  border-bottom-color: var(--orange);
+}
+
+/* Base de connaissances */
+.admin-kb { margin-top: 24px; }
+
+.admin-kb-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 28px 0 14px;
+}
+
+.admin-kb-add {
+  background: var(--gray-bg);
+  border: 1px solid var(--gray-border);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.admin-kb-add .admin-kb-subtitle { margin-top: 0; }
+
+.admin-kb-typeswitch {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.admin-kb-typeswitch label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.admin-kb-field { margin-bottom: 14px; }
+
+.admin-kb-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.admin-kb-field input,
+.admin-kb-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text-dark);
+  resize: vertical;
+}
+
+.admin-kb-field input:focus,
+.admin-kb-field textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(232, 100, 10, 0.15);
+}
+
+.admin-kb-editform {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-border);
+}
+
+.admin-badge.kb.doc { background: #E0F2FE; color: #0369A1; }
+.admin-badge.kb.qa { background: #FFF3EA; color: var(--orange); }
+
 @media (max-width: 600px) {
   .admin-action.toggle { margin-left: 0; }
+  .admin-nav { overflow-x: auto; }
 }
