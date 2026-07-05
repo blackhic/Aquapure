@@ -209,7 +209,7 @@ Définies dans `.env.local` (local, **gitignoré**) et sur **Vercel** (Productio
 | `NEXT_PUBLIC_ALLOW_INDEXING` | Autorise l'indexation (défaut `false`) | oui |
 | `ADMIN_PASSWORD` | Mot de passe unique de l'espace `/admin` (Mehdi) | **non — serveur only** |
 | `ADMIN_SESSION_SECRET` | Secret aléatoire pour signer le cookie de session admin (HMAC-SHA256) | **non — serveur only** |
-| `OPENAI_API_KEY` | Génération d'images (script dev uniquement) | non |
+| `OPENAI_API_KEY` | Embeddings base de connaissances (`text-embedding-3-small`, serveur) + génération d'images (script dev) | **non — serveur only** |
 
 > ⚠️ Aucune clé ne doit être commitée. `.env.local` est ignoré par git ;
 > `public/photos/_originals/` aussi. Le fichier **`.env.local.example`**
