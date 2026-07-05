@@ -21,6 +21,18 @@ const FOOTER_CITIES = [
   { name: "Cagnes-sur-Mer", slug: "cagnes-sur-mer" },
 ];
 
+// Documentation légale (maillage bas de page).
+const LEGAL_LINKS = [
+  { href: "/mentionslegales.html", label: "Mentions légales" },
+  {
+    href: "/politique-de-confidentialite.html",
+    label: "Politique de confidentialité",
+  },
+  { href: "/politique-de-cookies.html", label: "Politique de cookies" },
+  { href: "/cgu.html", label: "CGU" },
+  { href: "/cgv.html", label: "CGV" },
+];
+
 export default function Footer() {
   return (
     <footer>
@@ -64,8 +76,14 @@ export default function Footer() {
         <a href="mailto:contact@aquapureplomberie.fr">
           contact@aquapureplomberie.fr
         </a>
-        <br />
-        <Link href="/mentionslegales.html">Mentions légales &amp; RGPD</Link>
+
+        <nav className="footer-legal" aria-label="Informations légales">
+          {LEGAL_LINKS.map((link) => (
+            <Link key={link.href} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </footer>
   );
