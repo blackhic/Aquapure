@@ -99,6 +99,17 @@ const REALISATIONS = [
     label: "Rénovation complète de salle de bain — Nice",
     before: "/photos/avant-renovation.webp",
     after: "/photos/apres-renovation.webp",
+    beforeAlt: "Salle de bain à Nice avant rénovation par AQUAPURE Plomberie",
+    afterAlt: "Salle de bain à Nice après rénovation par AQUAPURE Plomberie",
+  },
+  {
+    label: "Rénovation du local technique de piscine — Côte d'Azur",
+    before: "/photos/avant-piscine.webp",
+    after: "/photos/apres-piscine.webp",
+    beforeAlt:
+      "Local technique de piscine vétuste avant rénovation — pompe de filtration et tuyauterie à remplacer, par AQUAPURE Plomberie",
+    afterAlt:
+      "Local technique de piscine rénové — pompe de filtration moderne et tuyauterie PVC neuve installées par AQUAPURE Plomberie",
   },
 ];
 
@@ -489,7 +500,7 @@ export default function Home() {
                   <figure className="ba-img">
                     <img
                       src={r.before}
-                      alt="Salle de bain à Nice avant rénovation par AQUAPURE Plomberie"
+                      alt={r.beforeAlt}
                       width={680}
                       height={680}
                       loading="lazy"
@@ -499,7 +510,7 @@ export default function Home() {
                   <figure className="ba-img">
                     <img
                       src={r.after}
-                      alt="Salle de bain à Nice après rénovation par AQUAPURE Plomberie"
+                      alt={r.afterAlt}
                       width={680}
                       height={680}
                       loading="lazy"

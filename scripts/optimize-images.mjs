@@ -23,6 +23,8 @@ const WIDTHS = {
   "plomberie-piscine-villa": 900,
   "avant-renovation": 680,
   "apres-renovation": 680,
+  "avant-piscine": 680,
+  "apres-piscine": 680,
 };
 const DEFAULT_WIDTH = 900;
 const QUALITY = 70; // webp
@@ -32,7 +34,14 @@ const fmt = (bytes) => (bytes / 1024).toFixed(0);
 
 async function main() {
   await mkdir(ORIG, { recursive: true });
-  const files = (await readdir(DIR)).filter((f) => f.endsWith(".webp"));
+
+  // Filtre optionnel : `node scripts/optimize-images.mjs nom1 nom2` ne traite
+  // que les fichiers nommés (évite d'écraser les originaux déjà sauvegardés des
+  // autres images). Sans argument → toutes les .webp du dossier.
+  const only = process.argv.slice(2).map((n) => n.replace(/\.webp$/, ""));
+  const files = (await readdir(DIR))
+    .filter((f) => f.endsWith(".webp"))
+    .filter((f) => only.length === 0 || only.includes(f.replace(/\.webp$/, "")));
 
   console.log(`Optimisation de ${files.length} image(s)…\n`);
   console.log(

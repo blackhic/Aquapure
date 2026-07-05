@@ -67,6 +67,16 @@ const IMAGES = [
     prompt:
       "Photorealistic plumber in navy uniform with a blue water-drop 'AQUAPURE Plomberie' logo working on swimming pool plumbing at a Mediterranean villa: pool pump, filter and PVC pipes in a poolside technical room, the luxury villa swimming pool visible in the background, natural daylight, realistic, professional. No third-party brand, no text other than the AQUAPURE logo.",
   },
+  {
+    nom_fichier: "avant-piscine",
+    prompt:
+      "Photorealistic old, worn-out and neglected swimming pool technical/equipment room in the South of France (Côte d'Azur): an old rusty filtration pump, yellowed PVC pipes with limescale-encrusted fittings, messy disorganized electrical wiring; in the background a swimming pool with murky greenish cloudy water. Before-renovation mood, natural daylight, realistic, professional. Generic equipment only, NO brand logo, no text.",
+  },
+  {
+    nom_fichier: "apres-piscine",
+    prompt:
+      "Photorealistic brand-new, clean and tidy swimming pool technical/equipment room in the South of France (Côte d'Azur): a modern filtration pump, neat white PVC pipework with clean valves and well-organised fittings, orderly professional installation; in the background a swimming pool with clear limpid blue water. After-renovation-by-a-plumber mood, natural daylight, realistic, professional. Generic equipment only, NO brand logo (no SEWERIN or any brand), no text.",
+  },
 ];
 
 // ── Chargement de OPENAI_API_KEY depuis .env.local ──
@@ -201,9 +211,21 @@ async function main() {
     console.log(`📁 Dossier créé : ${path.relative(process.cwd(), OUTPUT_DIR)}`);
   }
 
+  // Filtre optionnel : `node scripts/generate-images.mjs nom1 nom2` ne (re)génère
+  // que les images nommées (évite de refacturer/écraser les autres). Sans
+  // argument → toutes les images.
+  const only = process.argv.slice(2);
+  const targets = only.length
+    ? IMAGES.filter((i) => only.includes(i.nom_fichier))
+    : IMAGES;
+  if (only.length && targets.length === 0) {
+    console.error(`❌ Aucune image ne correspond à : ${only.join(", ")}`);
+    process.exit(1);
+  }
+
   const MAX_RETRIES = 3;
   let ok = 0;
-  for (const img of IMAGES) {
+  for (const img of targets) {
     let done = false;
     for (let attempt = 1; attempt <= MAX_RETRIES && !done; attempt++) {
       try {
@@ -227,8 +249,8 @@ async function main() {
     }
   }
 
-  console.log(`\nTerminé : ${ok}/${IMAGES.length} image(s) générée(s).`);
-  if (ok < IMAGES.length) process.exit(1);
+  console.log(`\nTerminé : ${ok}/${targets.length} image(s) générée(s).`);
+  if (ok < targets.length) process.exit(1);
 }
 
 main();
