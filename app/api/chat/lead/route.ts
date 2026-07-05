@@ -103,6 +103,10 @@ export async function POST(request: NextRequest) {
     nom,
     telephone,
     email: email || null,
+    // Le mini-formulaire du chatbot ne demande pas d'adresse → CP/ville null
+    // (colonnes nullable en base, ne casse rien).
+    code_postal: null,
+    ville: null,
     type_besoin: "Rappel (chatbot)",
     message: `[Chatbot] ${besoin || "Demande de rappel via l'assistant Aqua."}`,
     urgence: false,

@@ -485,6 +485,16 @@ body {
 }
 .form-field .req { color: var(--orange); }
 
+/* Code postal → ville détectée (geo.api.gouv.fr) */
+.form-field input.ville-detectee {
+  background: var(--green-bg);
+  border-color: #86EFAC;
+  color: var(--text-dark);
+  cursor: default;
+}
+.cp-hint { text-align: left; }
+.cp-hint.cp-ok { color: var(--green); font-weight: 600; }
+
 /* urgence */
 .urgence-field {
   display: flex; align-items: center; gap: 12px;

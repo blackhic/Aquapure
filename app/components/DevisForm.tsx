@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Options du type de besoin (la valeur est stockée telle quelle dans
 // la colonne `type_besoin`).
@@ -23,13 +23,23 @@ const CANAUX = [
 const normalizePhone = (v: string) => v.replace(/[\s.\-()]/g, "");
 const isPhoneValid = (v: string) => /^(?:\+33|0)[1-9]\d{8}$/.test(normalizePhone(v));
 const isEmailValid = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+const isPostalValid = (v: string) => /^\d{5}$/.test(v.trim());
 
-type Errors = Partial<Record<"nom" | "telephone" | "type_besoin" | "email", string>>;
+type Errors = Partial<
+  Record<"nom" | "telephone" | "type_besoin" | "email" | "code_postal" | "ville", string>
+>;
+
+// États de la détection ville à partir du code postal (geo.api.gouv.fr).
+type CpState = "idle" | "loading" | "single" | "multi" | "notfound" | "error";
 
 export default function DevisForm() {
   const [nom, setNom] = useState("");
   const [telephone, setTelephone] = useState("");
   const [email, setEmail] = useState("");
+  const [codePostal, setCodePostal] = useState("");
+  const [ville, setVille] = useState("");
+  const [communes, setCommunes] = useState<string[]>([]);
+  const [cpState, setCpState] = useState<CpState>("idle");
   const [typeBesoin, setTypeBesoin] = useState("");
   const [message, setMessage] = useState("");
   const [urgence, setUrgence] = useState(false);
@@ -40,6 +50,66 @@ export default function DevisForm() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
+  // Détection de la ville à partir du code postal via l'API officielle
+  // geo.api.gouv.fr (publique, CORS-friendly → appel client direct, sans proxy
+  // serveur). Debounce léger + annulation de la requête précédente pour ne pas
+  // spammer l'API à chaque frappe.
+  useEffect(() => {
+    const cp = codePostal.trim();
+    const valid = /^\d{5}$/.test(cp);
+    const controller = new AbortController();
+
+    // Tous les setState sont dans le callback du timer (jamais synchrones dans
+    // le corps de l'effet). CP incomplet → reset quasi immédiat (0 ms) ; CP
+    // valide → appel API débouncé (400 ms).
+    const timer = setTimeout(async () => {
+      if (!valid) {
+        setCpState("idle");
+        setCommunes([]);
+        setVille("");
+        return;
+      }
+      setCpState("loading");
+      try {
+        const res = await fetch(
+          `https://geo.api.gouv.fr/communes?codePostal=${cp}&fields=nom&format=json`,
+          { signal: controller.signal },
+        );
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data: Array<{ nom?: string }> = await res.json();
+        const noms = Array.from(
+          new Set(data.map((c) => c.nom).filter((n): n is string => Boolean(n))),
+        ).sort((a, b) => a.localeCompare(b, "fr"));
+
+        if (noms.length === 0) {
+          setCpState("notfound");
+          setCommunes([]);
+          setVille("");
+        } else if (noms.length === 1) {
+          setCommunes(noms);
+          setVille(noms[0]);
+          setCpState("single");
+        } else {
+          setCommunes(noms);
+          setCpState("multi");
+          // Garde la commune déjà choisie si elle appartient toujours au CP.
+          setVille((v) => (noms.includes(v) ? v : ""));
+        }
+      } catch {
+        if (controller.signal.aborted) return; // annulation volontaire → ignorer
+        // API indisponible / réseau coupé : on NE bloque PAS l'envoi, on bascule
+        // en saisie manuelle de la ville (le CP reste transmis).
+        setCpState("error");
+        setCommunes([]);
+      }
+    }, valid ? 400 : 0);
+
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [codePostal]);
+
   function validate(): Errors {
     const e: Errors = {};
     if (!nom.trim()) e.nom = "Merci d'indiquer votre nom.";
@@ -47,6 +117,17 @@ export default function DevisForm() {
       e.telephone = "Merci d'indiquer votre téléphone.";
     } else if (!isPhoneValid(telephone)) {
       e.telephone = "Numéro invalide (ex. 06 12 34 56 78 ou +33 6 12 34 56 78).";
+    }
+    if (!codePostal.trim()) {
+      e.code_postal = "Merci d'indiquer votre code postal.";
+    } else if (!isPostalValid(codePostal)) {
+      e.code_postal = "Code postal invalide (5 chiffres).";
+    }
+    if (!ville.trim()) {
+      e.ville =
+        cpState === "multi"
+          ? "Sélectionnez votre commune."
+          : "Merci d'indiquer votre ville.";
     }
     if (!typeBesoin) e.type_besoin = "Merci de choisir votre besoin.";
     if (email.trim() && !isEmailValid(email)) {
@@ -71,6 +152,8 @@ export default function DevisForm() {
           nom: nom.trim(),
           telephone: telephone.trim(),
           email: email.trim() || null,
+          code_postal: codePostal.trim(),
+          ville: ville.trim(),
           type_besoin: typeBesoin,
           message: message.trim() || null,
           urgence,
@@ -186,6 +269,99 @@ export default function DevisForm() {
           aria-invalid={!!errors.email}
         />
         {errors.email ? <span className="form-error">{errors.email}</span> : null}
+      </div>
+
+      <div className="form-row">
+        <div className="form-field">
+          <label htmlFor="code_postal">
+            Code postal <span className="req">*</span>
+          </label>
+          <input
+            id="code_postal"
+            name="code_postal"
+            type="text"
+            inputMode="numeric"
+            autoComplete="postal-code"
+            placeholder="06000"
+            maxLength={5}
+            value={codePostal}
+            onChange={(e) =>
+              setCodePostal(e.target.value.replace(/\D/g, "").slice(0, 5))
+            }
+            className={errors.code_postal ? "invalid" : undefined}
+            aria-invalid={!!errors.code_postal}
+          />
+          {errors.code_postal ? (
+            <span className="form-error">{errors.code_postal}</span>
+          ) : cpState === "loading" ? (
+            <span className="form-hint cp-hint">Recherche de la commune…</span>
+          ) : cpState === "notfound" ? (
+            <span className="form-error">
+              Code postal introuvable, vérifiez votre saisie.
+            </span>
+          ) : null}
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="ville">
+            Ville <span className="req">*</span>
+          </label>
+
+          {cpState === "multi" ? (
+            <select
+              id="ville"
+              name="ville"
+              value={ville}
+              onChange={(e) => setVille(e.target.value)}
+              className={errors.ville ? "invalid" : undefined}
+              aria-invalid={!!errors.ville}
+            >
+              <option value="">— Choisissez votre commune —</option>
+              {communes.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          ) : cpState === "single" ? (
+            <input
+              id="ville"
+              name="ville"
+              type="text"
+              value={ville}
+              readOnly
+              aria-readonly="true"
+              className="ville-detectee"
+            />
+          ) : (
+            // idle / loading / notfound / error → saisie manuelle (fallback si
+            // l'API est indisponible ou le CP introuvable).
+            <input
+              id="ville"
+              name="ville"
+              type="text"
+              autoComplete="address-level2"
+              placeholder="Votre commune"
+              value={ville}
+              onChange={(e) => setVille(e.target.value)}
+              className={errors.ville ? "invalid" : undefined}
+              aria-invalid={!!errors.ville}
+            />
+          )}
+
+          {cpState === "single" ? (
+            <span className="form-hint cp-hint cp-ok">
+              ✓ Ville détectée automatiquement
+            </span>
+          ) : cpState === "error" ? (
+            <span className="form-hint cp-hint">
+              Détection indisponible — saisissez votre ville.
+            </span>
+          ) : null}
+          {errors.ville ? (
+            <span className="form-error">{errors.ville}</span>
+          ) : null}
+        </div>
       </div>
 
       <div className="form-field">

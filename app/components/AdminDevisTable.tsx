@@ -8,6 +8,8 @@ export type Devis = {
   nom: string;
   telephone: string;
   email: string | null;
+  code_postal: string | null;
+  ville: string | null;
   type_besoin: string;
   message: string | null;
   urgence: boolean;
@@ -174,6 +176,16 @@ export default function AdminDevisTable({ devis }: { devis: Devis[] }) {
                     <dd>
                       {r.email ? (
                         <a href={`mailto:${r.email}`}>{r.email}</a>
+                      ) : (
+                        <span className="admin-devis-vide">—</span>
+                      )}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Localité</dt>
+                    <dd>
+                      {r.ville || r.code_postal ? (
+                        [r.ville, r.code_postal].filter(Boolean).join(" · ")
                       ) : (
                         <span className="admin-devis-vide">—</span>
                       )}

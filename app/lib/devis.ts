@@ -13,6 +13,8 @@ export type DevisRow = {
   nom: string;
   telephone: string;
   email: string | null;
+  code_postal: string | null;
+  ville: string | null;
   type_besoin: string;
   message: string | null;
   urgence: boolean;

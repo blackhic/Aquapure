@@ -9,6 +9,8 @@ type DevisPayload = {
   nom?: unknown;
   telephone?: unknown;
   email?: unknown;
+  code_postal?: unknown;
+  ville?: unknown;
   type_besoin?: unknown;
   message?: unknown;
   urgence?: unknown;
@@ -17,6 +19,10 @@ type DevisPayload = {
 
 const isNonEmptyString = (v: unknown): v is string =>
   typeof v === "string" && v.trim().length > 0;
+
+// Code postal FR : exactement 5 chiffres.
+const isPostalValid = (v: unknown): v is string =>
+  typeof v === "string" && /^\d{5}$/.test(v.trim());
 
 export async function POST(request: Request) {
   // 1. Parse du corps JSON
@@ -34,6 +40,7 @@ export async function POST(request: Request) {
   const missing: string[] = [];
   if (!isNonEmptyString(body.nom)) missing.push("nom");
   if (!isNonEmptyString(body.telephone)) missing.push("telephone");
+  if (!isNonEmptyString(body.ville)) missing.push("ville");
   if (!isNonEmptyString(body.type_besoin)) missing.push("type_besoin");
   if (missing.length > 0) {
     return NextResponse.json(
@@ -45,12 +52,22 @@ export async function POST(request: Request) {
     );
   }
 
+  // Code postal : requis + format strict (5 chiffres).
+  if (!isPostalValid(body.code_postal)) {
+    return NextResponse.json(
+      { success: false, error: "Code postal invalide (5 chiffres attendus)." },
+      { status: 400 },
+    );
+  }
+
   // 3. Construction de la ligne (uniquement les colonnes attendues ;
   //    statut laissé au défaut 'nouveau' côté base).
   const row = {
     nom: (body.nom as string).trim(),
     telephone: (body.telephone as string).trim(),
     email: isNonEmptyString(body.email) ? (body.email as string).trim() : null,
+    code_postal: (body.code_postal as string).trim(),
+    ville: (body.ville as string).trim(),
     type_besoin: (body.type_besoin as string).trim(),
     message: isNonEmptyString(body.message)
       ? (body.message as string).trim()

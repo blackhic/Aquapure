@@ -27,6 +27,8 @@ export type DevisData = {
   nom: string;
   telephone: string;
   email: string | null;
+  code_postal: string | null;
+  ville: string | null;
   type_besoin: string;
   message: string | null;
   urgence: boolean;
@@ -114,6 +116,8 @@ function notificationHtml(d: DevisData): string {
       ${row("Nom", esc(d.nom))}
       ${row("Téléphone", esc(d.telephone))}
       ${row("Email", d.email ? esc(d.email) : "—")}
+      ${row("Code postal", d.code_postal ? esc(d.code_postal) : "—")}
+      ${row("Ville", d.ville ? esc(d.ville) : "—")}
       ${row("Type de besoin", esc(d.type_besoin))}
       ${row("Message", d.message ? esc(d.message).replace(/\n/g, "<br>") : "—")}
       ${row("Urgence", d.urgence ? "OUI" : "Non")}
@@ -136,6 +140,11 @@ function acknowledgementHtml(d: DevisData): string {
     </div>
     <p style="margin:0 0 6px;color:#6b7280;font-size:13px;">Récapitulatif de votre demande :</p>
     <p style="margin:0 0 14px;font-size:15px;">${esc(d.type_besoin)}${d.message ? " — " + esc(d.message) : ""}</p>
+    ${
+      d.code_postal || d.ville
+        ? `<p style="margin:0 0 14px;font-size:15px;">📍 ${esc([d.code_postal, d.ville].filter(Boolean).join(" "))}</p>`
+        : ""
+    }
     <p style="margin:18px 0 0;">Nos coordonnées :<br>
       ☎ <a href="tel:0484350486" style="color:${ORANGE};text-decoration:none;">04 84 35 04 86</a><br>
       ✉ <a href="mailto:contact@aquapureplomberie.fr" style="color:${ORANGE};text-decoration:none;">contact@aquapureplomberie.fr</a>
