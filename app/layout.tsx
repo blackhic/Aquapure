@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ChatWidget from "@/app/components/ChatWidget";
 
 const SITE_URL = "https://aquapureplomberie.fr";
 
@@ -97,6 +98,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <ChatWidget />
       </body>
     </html>
   );
