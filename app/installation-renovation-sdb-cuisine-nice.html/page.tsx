@@ -16,7 +16,7 @@ export default function RenovationPage() {
     <ServicePage
       eyebrow="Installation & rénovation"
       h1="Installation & rénovation de salles de bain et cuisines à Nice - Plombier expert"
-      subtitle="Création et rénovation complète salle de bain à Nice. Pose douche italienne, baignoire, WC suspendu, carrelage, adaptation PMR. Artisan plombier expert."
+      subtitle="Création et rénovation complète salle de bain à Nice et sur la Côte d'Azur (06 & 83). Pose douche italienne, baignoire, WC suspendu, carrelage, adaptation PMR. Artisan plombier expert."
       introH2="Créer une nouvelle salle d'eau, moderniser vos installations sanitaires"
       image="/photos/renovation-salle-de-bain.webp"
       imageAlt="Rénovation complète de salle de bain à Nice avec douche italienne — AQUAPURE Plomberie"

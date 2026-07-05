@@ -26,7 +26,8 @@ export default function ContactPage() {
             <h1>Contact &amp; devis gratuit — Plombier à Nice</h1>
             <p className="hero-sub">
               Contactez AQUAPURE Plomberie à Nice pour un devis gratuit.
-              Intervention rapide dans le 06 et 83. Disponible 24h/24, 7j/7.
+              Intervention rapide sur toute la Côte d&apos;Azur — Alpes-Maritimes
+              (06) et Var (83). Disponible 24h/24, 7j/7.
             </p>
             <div className="hero-ctas">
               <a href="tel:0484350486" className="cta-call">
@@ -96,8 +97,9 @@ export default function ContactPage() {
                 <div>
                   <div className="why-title">Nous localiser</div>
                   <div className="why-detail">
-                    Entreprise installée à Nice ; intervention dans tout le 06 et
-                    le Var ; permanence urgences 7j/7, 24h/24.
+                    Entreprise installée à Nice ; intervention sur toute la Côte
+                    d&apos;Azur — Alpes-Maritimes (06) et Var (83) ; permanence
+                    urgences 7j/7, 24h/24.
                   </div>
                 </div>
               </div>

@@ -166,9 +166,9 @@ export default function Home() {
             </h1>
             <p className="hero-sub">
               Fuite, canalisation bouchée, chauffe-eau en panne ? AQUAPURE
-              intervient rapidement, de jour comme de nuit, dans tout le 06 et
-              l&apos;est du Var. Artisan local, 15 ans d&apos;expérience, garanti
-              décennale.
+              intervient rapidement, de jour comme de nuit, sur toute la Côte
+              d&apos;Azur — dans les Alpes-Maritimes (06) et le Var (83). Artisan
+              local, 15 ans d&apos;expérience, garanti décennale.
             </p>
             <div className="hero-ctas">
               <a href="tel:0484350486" className="cta-call">
@@ -260,7 +260,8 @@ export default function Home() {
           </h2>
           <p className="section-lead">
             De l&apos;urgence à la rénovation complète, AQUAPURE Plomberie couvre
-            tous vos besoins à Nice et dans les Alpes-Maritimes.
+            tous vos besoins à Nice et sur toute la Côte d&apos;Azur —
+            Alpes-Maritimes (06) et Var (83).
           </p>
           <div className="services-grid">
             <div className="service-card">
@@ -457,7 +458,8 @@ export default function Home() {
           <div className="section-eyebrow">Réalisations</div>
           <h2 className="section-title">Avant / après</h2>
           <p className="section-lead">
-            Quelques chantiers récents à Nice et dans le 06.
+            Quelques chantiers récents à Nice et sur la Côte d&apos;Azur (06 &amp;
+            83).
           </p>
           <div className="ba-grid">
             {REALISATIONS.map((r) => (
@@ -499,9 +501,9 @@ export default function Home() {
           <div className="section-eyebrow">Pourquoi nous choisir</div>
           <h2 className="section-title">Ce qui fait la différence</h2>
           <p className="section-lead">
-            AQUAPURE Plomberie, c&apos;est un artisan local qui connaît Nice et le
-            06 comme sa poche — avec les certifications, l&apos;équipe et la
-            disponibilité qui vont avec.
+            AQUAPURE Plomberie, c&apos;est un artisan local qui connaît Nice, le
+            06 et le Var comme sa poche — avec les certifications, l&apos;équipe et
+            la disponibilité qui vont avec.
           </p>
           <div className="why-grid">
             <div className="why-card">
@@ -580,21 +582,23 @@ export default function Home() {
               <div className="section-eyebrow">Zone d&apos;intervention</div>
               <h2 className="section-title">Nice et tout le 06 – Est du Var</h2>
               <p className="section-lead" style={{ marginBottom: "24px" }}>
-                Basés au 29 Boulevard Victor Hugo à Nice, nous couvrons toute la
-                métropole et ses environs. Un doute sur votre secteur ?
-                Appelez-nous.
+                Basés au 29 Boulevard Victor Hugo à Nice, nous intervenons sur
+                toute la Côte d&apos;Azur — Alpes-Maritimes (06) et Var (83). Un
+                doute sur votre secteur ? Appelez-nous.
               </p>
               <div className="zone-box">
                 <div className="zone-box-title">Nous intervenons dans :</div>
                 <div className="zone-pills">
+                  <span className="zone-pill">Fréjus</span>
+                  <span className="zone-pill">Saint-Raphaël</span>
+                  <span className="zone-pill">Draguignan</span>
+                  <span className="zone-pill">Est du Var (83)</span>
                   <span className="zone-pill">Nice</span>
                   <span className="zone-pill">Antibes</span>
                   <span className="zone-pill">Cannes</span>
-                  <span className="zone-pill">Menton</span>
                   <span className="zone-pill">Cagnes-sur-Mer</span>
-                  <span className="zone-pill">Villeneuve-Loubet</span>
                   <span className="zone-pill">Saint-Laurent-du-Var</span>
-                  <span className="zone-pill">Est du Var (83)</span>
+                  <span className="zone-pill">Menton</span>
                 </div>
                 <a href="tel:0484350486" className="zone-cta-btn">
                   <svg viewBox="0 0 24 24">
@@ -627,8 +631,8 @@ export default function Home() {
             Votre plombier dans tout le 06 et l&apos;est du Var
           </h2>
           <p className="section-lead">
-            Nous intervenons à Nice et dans les communes voisines des
-            Alpes-Maritimes et du Var.
+            Nous intervenons à Nice, dans le Var (83) et sur toute la Côte
+            d&apos;Azur — communes des Alpes-Maritimes (06) et du Var.
           </p>
           <div className="cities-pills">
             {/* TODO: futures pages locales par ville (/plombier-[ville]) — liens inactifs pour l'instant */}
@@ -744,7 +748,8 @@ export default function Home() {
           </div>
           <div className="inline-cta">
             <p>
-              Rejoignez nos clients satisfaits à Nice.{" "}
+              Rejoignez nos clients satisfaits à Nice et sur toute la Côte
+              d&apos;Azur.{" "}
               <strong>Confiez-nous votre installation.</strong>
             </p>
             <a href="tel:0484350486" className="btn-cta-inline">

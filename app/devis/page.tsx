@@ -23,9 +23,9 @@ export default function DevisPage() {
           <div className="section-eyebrow">Devis gratuit</div>
           <h1 className="section-title">Demandez votre devis gratuit</h1>
           <p className="section-lead">
-            Sans engagement, réponse rapide. Nous intervenons 24h/24, 7j/7 à Nice,
-            dans tout le 06 et l&apos;est du Var. Remplissez le formulaire, Mehdi
-            vous rappelle.
+            Sans engagement, réponse rapide. Nous intervenons 24h/24, 7j/7 à Nice
+            et sur toute la Côte d&apos;Azur — Alpes-Maritimes (06) et Var (83).
+            Remplissez le formulaire, Mehdi vous rappelle.
           </p>
 
           <div className="devis-badges">

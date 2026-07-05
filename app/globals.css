@@ -864,6 +864,28 @@ footer a:hover { color: var(--white); }
 .footer-nav a { font-size: 13px; color: rgba(255,255,255,0.60); }
 .footer-nav a:hover { color: var(--white); }
 
+/* Bande « villes desservies » — Var (83) & Alpes-Maritimes (06) */
+.footer-cities {
+  margin-bottom: 18px; padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.footer-cities-title {
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 12px;
+}
+.footer-cities-list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+}
+.footer-city {
+  display: inline-block;
+  padding: 5px 12px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.14);
+  font-size: 12.5px; color: rgba(255,255,255,0.62);
+  white-space: nowrap;
+}
+
 /* ── STICKY MOBILE BAR ── */
 .sticky-bar {
   display: none;

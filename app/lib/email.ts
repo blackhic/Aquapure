@@ -83,6 +83,7 @@ function shell(title: string, inner: string): string {
         <tr><td style="padding:24px;color:#0D1B2A;font-size:15px;line-height:1.6;">${inner}</td></tr>
         <tr><td style="background:#f7f8fa;padding:16px 24px;color:#6b7280;font-size:12px;line-height:1.5;border-top:1px solid #e5e7eb;">
           AQUAPURE Plomberie · 29 Boulevard Victor Hugo, 06000 Nice · 7j/7 24h/24<br>
+          Zone d'intervention : Côte d'Azur — Alpes-Maritimes (06) &amp; Var (83)<br>
           <a href="tel:0484350486" style="color:${ORANGE};text-decoration:none;">04 84 35 04 86</a> ·
           <a href="mailto:contact@aquapureplomberie.fr" style="color:${ORANGE};text-decoration:none;">contact@aquapureplomberie.fr</a>
         </td></tr>

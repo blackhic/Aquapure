@@ -15,7 +15,7 @@ export default function DepannagePage() {
     <ServicePage
       eyebrow="Dépannage & urgences"
       h1="Dépannage plomberie urgence 24h/24 dans les Alpes-Maritimes et le Var"
-      subtitle="Plombier d'urgence à Nice et Alpes-Maritimes 24h/24, 7j/7. Fuite d'eau, canalisation bouchée, WC, chauffe-eau en panne. Intervention rapide garantie."
+      subtitle="Plombier d'urgence à Nice, dans les Alpes-Maritimes (06) et le Var (83) — 24h/24, 7j/7. Fuite d'eau, canalisation bouchée, WC, chauffe-eau en panne. Intervention rapide garantie."
       introH2="Intervention rapide en cas d'urgence"
       introText="Service 24h/24, 7j/7, jours fériés inclus sur Nice, tout le 06 et le Var (83)."
       image="/photos/depannage-urgence.webp"
