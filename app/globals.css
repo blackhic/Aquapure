@@ -1443,6 +1443,124 @@ hr.div { border: none; border-top: 1px solid var(--gray-border); margin: 0; }
 .chat-send:hover:not(:disabled) { background: var(--orange-hover); }
 .chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* Bouton « Être rappelé » (3e action rapide) */
+.chat-quick-btn.rappel {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.chat-quick-btn.rappel:hover { background: var(--orange-hover); }
+
+/* Mini-formulaire de rappel (lead) */
+.chat-lead {
+  padding: 12px 14px 14px;
+  border-top: 1px solid var(--gray-border);
+  overflow-y: auto;
+  max-height: 60%;
+}
+.chat-lead-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.chat-lead-banner {
+  background: #FEE2E2;
+  color: #B91C1C;
+  border: 1px solid #FCA5A5;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.chat-lead-banner a { color: #B91C1C; font-weight: 700; }
+.chat-lead-field { margin-bottom: 10px; }
+.chat-lead-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.chat-lead-field label span { color: var(--orange); }
+.chat-lead-field input,
+.chat-lead-field textarea {
+  width: 100%;
+  padding: 9px 11px;
+  font-size: 14px;
+  font-family: inherit;
+  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  color: var(--text-dark);
+  resize: vertical;
+}
+.chat-lead-field input:focus,
+.chat-lead-field textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(232, 100, 10, 0.15);
+}
+.chat-lead-field input[aria-invalid="true"],
+.chat-lead-field textarea[aria-invalid="true"] {
+  border-color: #DC2626;
+}
+.chat-lead-err {
+  display: block;
+  font-size: 12px;
+  color: #B91C1C;
+  margin-top: 3px;
+}
+.chat-lead-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+.chat-lead-cancel,
+.chat-lead-submit {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--gray-border);
+}
+.chat-lead-cancel { background: var(--white); color: var(--navy); }
+.chat-lead-cancel:hover:not(:disabled) { background: var(--gray-bg); }
+.chat-lead-submit {
+  background: var(--orange);
+  color: var(--white);
+  border-color: var(--orange);
+}
+.chat-lead-submit:hover:not(:disabled) { background: var(--orange-hover); }
+.chat-lead-cancel:disabled,
+.chat-lead-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.chat-lead-success {
+  padding: 22px 18px;
+  text-align: center;
+  border-top: 1px solid var(--gray-border);
+}
+.chat-lead-success-icon { font-size: 32px; }
+.chat-lead-success p {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin: 8px 0 14px;
+}
+.chat-lead-back {
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--white);
+  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.chat-lead-back:hover { background: var(--gray-bg); }
+
 @media (max-width: 600px) {
   .chat-panel {
     right: 12px;

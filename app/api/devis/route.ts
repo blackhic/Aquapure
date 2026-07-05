@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSupabaseAdmin } from "@/app/lib/supabase";
-import {
-  sendDevisNotification,
-  sendClientAcknowledgement,
-  type DevisData,
-} from "@/app/lib/email";
+import { createDevis } from "@/app/lib/devis";
 
 // Route exécutée côté serveur Node.js (la service_role key n'est jamais
 // envoyée au navigateur).
@@ -66,46 +61,18 @@ export async function POST(request: Request) {
       : null,
   };
 
-  // 4. Insertion via le client service_role (bypass RLS)
+  // 4. Insertion + notifications (service_role + Resend non bloquant)
+  //    via le helper partagé avec /api/chat/lead.
   try {
-    const supabase = getSupabaseAdmin();
-    const { data, error } = await supabase
-      .from("devis")
-      .insert(row)
-      .select("id, created_at")
-      .single();
-
-    if (error) {
-      // Log détaillé côté serveur uniquement ; message générique au client.
-      console.error("[api/devis] Erreur insertion Supabase :", error.message);
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Impossible d'enregistrer la demande pour le moment.",
-        },
-        { status: 500 },
-      );
-    }
-
-    // ── Notifications email (Resend) — NON bloquantes ──
-    // La demande est DÉJÀ enregistrée : un échec d'envoi ne doit jamais
-    // empêcher de renvoyer un succès au client (ne pas perdre le lead).
-    // Chaque envoi a son propre catch → l'échec de l'un n'empêche pas l'autre.
-    const devis: DevisData = { ...row, id: data.id, created_at: data.created_at };
-    await Promise.allSettled([
-      sendDevisNotification(devis).catch((e) =>
-        console.error("[api/devis] Échec email notification :", e),
-      ),
-      sendClientAcknowledgement(devis).catch((e) =>
-        console.error("[api/devis] Échec email accusé client :", e),
-      ),
-    ]);
-
-    return NextResponse.json({ success: true, id: data.id }, { status: 201 });
+    const { id } = await createDevis(row);
+    return NextResponse.json({ success: true, id }, { status: 201 });
   } catch (err) {
-    console.error("[api/devis] Exception :", err);
+    console.error("[api/devis] Échec création devis :", err);
     return NextResponse.json(
-      { success: false, error: "Erreur serveur." },
+      {
+        success: false,
+        error: "Impossible d'enregistrer la demande pour le moment.",
+      },
       { status: 500 },
     );
   }
