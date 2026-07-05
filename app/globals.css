@@ -330,13 +330,20 @@ body {
 .form-field { display: flex; flex-direction: column; gap: 6px; }
 .form-field label { font-size: 13px; font-weight: 600; color: var(--text-mid); }
 .form-field input,
+.form-field select,
 .form-field textarea {
-  font-family: inherit; font-size: 15px; color: var(--text-dark);
+  font-family: inherit; font-size: 16px; color: var(--text-dark);
   padding: 12px 14px; border: 1px solid var(--gray-border);
   border-radius: 10px; background: var(--white); transition: border-color .15s;
+  width: 100%;
 }
 .form-field input:focus,
+.form-field select:focus,
 .form-field textarea:focus { outline: none; border-color: var(--orange); }
+.form-field input.invalid,
+.form-field select.invalid,
+.form-field textarea.invalid { border-color: #DC2626; }
+.form-error { font-size: 13px; color: #DC2626; margin-top: 2px; }
 .form-field textarea { resize: vertical; min-height: 120px; }
 .contact-form button { align-self: flex-start; border: none; cursor: pointer; }
 @media (max-width: 900px) {
@@ -345,6 +352,71 @@ body {
 @media (max-width: 600px) {
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ── PAGE DEVIS ── */
+.devis-inner { max-width: 680px; }
+.devis-badges { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-bottom: 28px; }
+.devis-badge {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--text-mid);
+}
+.devis-badge svg { width: 16px; height: 16px; fill: var(--green); flex-shrink: 0; }
+.devis-card {
+  background: var(--white); border: 1px solid var(--gray-border);
+  border-radius: 16px; padding: 28px 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.form-field .req { color: var(--orange); }
+
+/* urgence */
+.urgence-field {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; background: #FFF3EA; border: 1px solid #FFD9BA;
+  border-radius: 10px; cursor: pointer;
+}
+.urgence-field input { width: 20px; height: 20px; accent-color: var(--orange); flex-shrink: 0; cursor: pointer; }
+.urgence-field .urgence-label { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+
+/* canal préféré */
+.canal-options { display: flex; flex-wrap: wrap; gap: 10px; }
+.canal-option {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border: 1px solid var(--gray-border); border-radius: 10px;
+  cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-mid);
+  transition: border-color .15s, color .15s;
+}
+.canal-option input { accent-color: var(--orange); cursor: pointer; }
+.canal-option:has(input:checked) { border-color: var(--orange); color: var(--orange); }
+
+/* bouton d'envoi */
+.form-submit {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--orange); color: #FFFFFF; border: none; border-radius: 12px;
+  padding: 16px 24px; font-size: 17px; font-weight: 700; cursor: pointer;
+  width: 100%; transition: background .15s;
+}
+.form-submit:hover:not(:disabled) { background: var(--orange-hover); }
+.form-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+.form-submit svg { width: 20px; height: 20px; fill: #FFFFFF; }
+.form-hint { font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 4px; }
+
+/* bandeau d'erreur serveur */
+.form-error-banner {
+  background: #FEF2F2; border: 1px solid #FECACA; color: #B91C1C;
+  border-radius: 10px; padding: 12px 16px; font-size: 14px; line-height: 1.5;
+}
+.form-error-banner a { color: #B91C1C; font-weight: 700; }
+
+/* écran de confirmation */
+.devis-success { text-align: center; padding: 12px 4px; }
+.devis-success-icon {
+  width: 64px; height: 64px; border-radius: 50%; background: var(--green-bg);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
+}
+.devis-success-icon svg { width: 34px; height: 34px; fill: var(--green); }
+.devis-success h2 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+.devis-success p { font-size: 15px; color: var(--text-mid); line-height: 1.6; margin-bottom: 20px; }
+.devis-success .cta-call { max-width: 360px; margin: 0 auto; }
 
 /* ── PROCESSUS (timeline) ── */
 .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }

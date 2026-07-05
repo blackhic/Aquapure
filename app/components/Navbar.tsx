@@ -70,12 +70,12 @@ export default function Navbar() {
             <span className="pulse-dot"></span>
             Disponible 24h/24
           </div>
-          <a href="mailto:contact@aquapureplomberie.fr" className="btn-devis">
+          <Link href="/devis" className="btn-devis">
             <svg viewBox="0 0 24 24">
               <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V8.82l8 5 8-5V18z" />
             </svg>
             Devis gratuit
-          </a>
+          </Link>
           <a href="tel:0484350486" className="btn-phone">
             <svg viewBox="0 0 24 24">
               <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.4 21 3 12.6 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
