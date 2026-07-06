@@ -9,6 +9,10 @@ import { Resend } from "resend";
 // ─────────────────────────────────────────────────────────────────────────
 const FROM = "AQUAPURE Plomberie <onboarding@resend.dev>";
 
+// Boîte de réception AQUAPURE : reçoit les messages du formulaire de contact
+// ET une copie de chaque demande de devis (en plus de DEVIS_NOTIFICATION_EMAIL).
+const AQUAPURE_INBOX = "aquapureplomberie@gmail.com";
+
 const NAVY = "#0D2B45";
 const ORANGE = "#E8640A";
 const WHATSAPP = "#25D366";
@@ -154,21 +158,58 @@ function acknowledgementHtml(d: DevisData): string {
   return shell("votre demande de devis", inner);
 }
 
-// Envoie la notification à Mehdi. Lance une erreur en cas d'échec (gérée par
-// l'appelant).
-export async function sendDevisNotification(d: DevisData): Promise<void> {
-  const to = process.env.DEVIS_NOTIFICATION_EMAIL;
-  if (!to) throw new Error("DEVIS_NOTIFICATION_EMAIL manquante.");
+// Envoie un email vers les boîtes de notification AQUAPURE : l'adresse
+// configurée (DEVIS_NOTIFICATION_EMAIL) ET aquapureplomberie@gmail.com. Chaque
+// destinataire est traité par un envoi INDÉPENDANT : l'échec de l'un (ex.
+// restriction du domaine d'envoi en mode test Resend) ne prive pas l'autre.
+// Ne lève que si TOUS les envois échouent (l'appelant gère).
+async function sendToInboxes(opts: {
+  subject: string;
+  html: string;
+  replyTo?: string;
+  label: string;
+}): Promise<void> {
+  const configured = process.env.DEVIS_NOTIFICATION_EMAIL;
+  const recipients = Array.from(
+    new Set([configured, AQUAPURE_INBOX].filter((v): v is string => !!v)),
+  );
+  if (recipients.length === 0) {
+    throw new Error("Aucune adresse de notification configurée.");
+  }
 
-  const subject = `${d.urgence ? "[URGENCE] " : ""}Nouvelle demande de devis - ${d.nom} - ${d.type_besoin}`;
-  const { error } = await getResend().emails.send({
-    from: FROM,
-    to,
-    replyTo: d.email || undefined,
-    subject,
+  const results = await Promise.allSettled(
+    recipients.map(async (to) => {
+      const { error } = await getResend().emails.send({
+        from: FROM,
+        to,
+        replyTo: opts.replyTo,
+        subject: opts.subject,
+        html: opts.html,
+      });
+      if (error) throw new Error(error.message || "Échec envoi.");
+    }),
+  );
+
+  const failures = results.filter((r) => r.status === "rejected");
+  for (const f of failures) {
+    console.error(
+      `[email] ${opts.label} — échec partiel :`,
+      (f as PromiseRejectedResult).reason,
+    );
+  }
+  if (failures.length === recipients.length) {
+    throw new Error(`Échec envoi ${opts.label} à tous les destinataires.`);
+  }
+}
+
+// Notification d'une demande de devis → boîtes AQUAPURE.
+export async function sendDevisNotification(d: DevisData): Promise<void> {
+  await sendToInboxes({
+    subject: `${d.urgence ? "[URGENCE] " : ""}Nouvelle demande de devis - ${d.nom} - ${d.type_besoin}`,
     html: notificationHtml(d),
+    replyTo: d.email || undefined,
+    label: "notification devis",
   });
-  if (error) throw new Error(error.message || "Échec envoi notification.");
 }
 
 // Envoie l'accusé de réception au client (uniquement s'il a fourni un email).
@@ -182,4 +223,42 @@ export async function sendClientAcknowledgement(d: DevisData): Promise<void> {
     html: acknowledgementHtml(d),
   });
   if (error) throw new Error(error.message || "Échec envoi accusé.");
+}
+
+// ── Message du formulaire de CONTACT ─────────────────────────────────────────
+export type ContactData = {
+  nom: string | null;
+  prenom: string;
+  email: string;
+  telephone: string;
+  code_postal: string;
+  ville: string;
+  message: string;
+};
+
+// Envoie le message du formulaire de contact vers les boîtes AQUAPURE.
+// replyTo = email du visiteur pour répondre directement. Lève en cas d'échec
+// total (géré par la route /api/contact).
+export async function sendContactMessage(d: ContactData): Promise<void> {
+  const row = (k: string, v: string) =>
+    `<tr><td style="padding:8px 0;color:#6b7280;font-size:13px;width:120px;vertical-align:top;">${k}</td><td style="padding:8px 0;color:#0D1B2A;font-size:15px;font-weight:600;">${v}</td></tr>`;
+
+  const inner = `
+    <p style="margin:0 0 16px;font-size:16px;">Nouveau message depuis le formulaire de contact du site :</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #e5e7eb;">
+      ${row("Prénom", esc(d.prenom))}
+      ${row("Nom", d.nom ? esc(d.nom) : "—")}
+      ${row("Email", esc(d.email))}
+      ${row("Téléphone", esc(d.telephone))}
+      ${row("Code postal", esc(d.code_postal))}
+      ${row("Ville", esc(d.ville))}
+      ${row("Message", esc(d.message).replace(/\n/g, "<br>"))}
+    </table>`;
+
+  await sendToInboxes({
+    subject: `Nouveau message de contact - ${d.prenom}${d.nom ? " " + d.nom : ""} (${d.ville})`,
+    html: shell("nouveau message de contact", inner),
+    replyTo: d.email || undefined,
+    label: "message de contact",
+  });
 }

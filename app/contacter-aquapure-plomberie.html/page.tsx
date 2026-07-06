@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import StickyBar from "@/app/components/StickyBar";
+import ContactForm from "@/app/components/ContactForm";
 import { pageMetadata } from "@/app/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -105,51 +106,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Formulaire */}
-            <form
-              className="contact-form"
-              action="mailto:contact@aquapureplomberie.fr"
-              method="post"
-              encType="text/plain"
-            >
-              <h2 className="section-title" style={{ fontSize: "20px" }}>
-                Envoyez-nous un message
-              </h2>
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="nom">Nom</label>
-                  <input id="nom" name="Nom" type="text" required />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="prenom">Prénom</label>
-                  <input id="prenom" name="Prénom" type="text" required />
-                </div>
-              </div>
-              <div className="form-row">
-                <div className="form-field">
-                  <label htmlFor="email">Email</label>
-                  <input id="email" name="Email" type="email" required />
-                </div>
-                <div className="form-field">
-                  <label htmlFor="telephone">Téléphone</label>
-                  <input id="telephone" name="Téléphone" type="tel" />
-                </div>
-              </div>
-              <div className="form-field">
-                <label htmlFor="sujet">Sujet</label>
-                <input id="sujet" name="Sujet" type="text" />
-              </div>
-              <div className="form-field">
-                <label htmlFor="message">Votre demande</label>
-                <textarea id="message" name="Message" rows={5} required />
-              </div>
-              <button type="submit" className="btn-cta-inline">
-                <svg viewBox="0 0 24 24">
-                  <path d="M2 21l21-9L2 3v7l15 2-15 2v7z" />
-                </svg>
-                Envoyer
-              </button>
-            </form>
+            {/* Formulaire (envoi serveur via Resend → aquapureplomberie@gmail.com) */}
+            <ContactForm />
           </div>
         </div>
       </section>
