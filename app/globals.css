@@ -643,6 +643,9 @@ body {
   gap: 16px;
 }
 .service-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: var(--white);
   border: 1px solid var(--gray-border);
   border-radius: 14px;

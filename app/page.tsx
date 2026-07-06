@@ -284,7 +284,10 @@ export default function Home() {
             Alpes-Maritimes (06) et Var (83).
           </p>
           <div className="services-grid">
-            <div className="service-card">
+            <Link
+              href="/depannage-plombier-06-83.html"
+              className="service-card"
+            >
               <div className="service-icon si-urgence">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
@@ -301,8 +304,11 @@ export default function Home() {
                 </svg>
                 En savoir plus
               </div>
-            </div>
-            <div className="service-card">
+            </Link>
+            <Link
+              href="/installation-renovation-sdb-cuisine-nice.html"
+              className="service-card"
+            >
               <div className="service-icon si-reno">
                 <svg viewBox="0 0 24 24">
                   <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" />
@@ -321,8 +327,11 @@ export default function Home() {
                 </svg>
                 Voir les rénovations
               </div>
-            </div>
-            <div className="service-card">
+            </Link>
+            <Link
+              href="/installation-depannage-chauffe-eau-a-nice.html"
+              className="service-card"
+            >
               <div className="service-icon si-chauffe">
                 <svg viewBox="0 0 24 24">
                   <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z" />
@@ -341,8 +350,11 @@ export default function Home() {
                 </svg>
                 Nos prestations
               </div>
-            </div>
-            <div className="service-card">
+            </Link>
+            <Link
+              href="/plomberie-generale-a-nice.html"
+              className="service-card"
+            >
               <div className="service-icon si-general">
                 <svg viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
@@ -359,7 +371,7 @@ export default function Home() {
                 </svg>
                 Tout savoir
               </div>
-            </div>
+            </Link>
           </div>
 
           {/* Photos services */}
@@ -757,7 +769,10 @@ export default function Home() {
             </div>
           </div>
           <div style={{ textAlign: "center", marginTop: "24px" }}>
-            <button
+            <a
+              href="https://share.google/6CqJQABV8Ze6jeHt8"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -770,13 +785,14 @@ export default function Home() {
                 fontWeight: 500,
                 color: "var(--navy)",
                 cursor: "pointer",
+                textDecoration: "none",
               }}
             >
               <svg viewBox="0 0 24 24" width="16" height="16" fill="#F59E0B">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
               </svg>
               Voir tous nos avis Google
-            </button>
+            </a>
           </div>
           <div className="inline-cta">
             <p>
