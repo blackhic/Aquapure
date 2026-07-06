@@ -84,6 +84,17 @@ export default function Footer() {
             </Link>
           ))}
         </nav>
+
+        <p className="footer-credit">
+          Conçu avec <span aria-hidden="true">❤️</span> par{" "}
+          <a
+            href="http://interconnectmarket.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Interconnect Market
+          </a>
+        </p>
       </div>
     </footer>
   );
