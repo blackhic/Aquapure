@@ -27,7 +27,13 @@ const WIDTHS = {
   "apres-piscine": 680,
 };
 const DEFAULT_WIDTH = 900;
-const QUALITY = 70; // webp
+const QUALITY = 70; // webp (défaut)
+// Qualité webp par image (override). Le hero est l'image LCP : on la compresse
+// plus fort (imperceptible car masquée à ~70 % par le dégradé navy) pour
+// accélérer le Largest Contentful Paint.
+const QUALITIES = {
+  "hero-plombier-nice": 46,
+};
 const MAX_KO = 200;
 
 const fmt = (bytes) => (bytes / 1024).toFixed(0);
@@ -61,7 +67,7 @@ async function main() {
     const width = WIDTHS[name] ?? DEFAULT_WIDTH;
 
     // Compression, en réduisant la qualité si on dépasse la cible.
-    let quality = QUALITY;
+    let quality = QUALITIES[name] ?? QUALITY;
     let out;
     do {
       out = await sharp(backup)

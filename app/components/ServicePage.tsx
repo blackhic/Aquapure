@@ -33,6 +33,13 @@ export default function ServicePage({
 }: ServicePageProps) {
   return (
     <>
+      {/* Précharge l'image LCP du hero (background CSS). */}
+      <link
+        rel="preload"
+        as="image"
+        href="/photos/hero-plombier-nice.webp"
+        fetchPriority="high"
+      />
       <Navbar />
 
       <section className="hero">

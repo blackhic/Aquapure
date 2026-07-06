@@ -146,6 +146,14 @@ export default function Home() {
 
   return (
     <>
+      {/* Précharge l'image LCP du hero (background CSS → sinon découverte tardive).
+          React 19 hisse ce <link> dans le <head>. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/photos/hero-plombier-nice.webp"
+        fetchPriority="high"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
