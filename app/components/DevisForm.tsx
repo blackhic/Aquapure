@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Options du type de besoin (la valeur est stockée telle quelle dans
 // la colonne `type_besoin`).
@@ -49,6 +49,7 @@ export default function DevisForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const successRef = useRef<HTMLDivElement>(null);
 
   // Détection de la ville à partir du code postal via l'API officielle
   // geo.api.gouv.fr (publique, CORS-friendly → appel client direct, sans proxy
@@ -178,9 +179,18 @@ export default function DevisForm() {
     }
   }
 
+  // Dès l'affichage de la confirmation, on la ramène dans le viewport : sur
+  // mobile la page restait scrollée en bas (sous l'ancien bouton d'envoi), la
+  // confirmation — plus haut dans la carte — était hors écran.
+  useEffect(() => {
+    if (success) {
+      successRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [success]);
+
   if (success) {
     return (
-      <div className="devis-success">
+      <div className="devis-success" ref={successRef}>
         <div className="devis-success-icon">
           <svg viewBox="0 0 24 24">
             <path d="M9 16.2l-4.2-4.2-1.4 1.4 5.6 5.6 12-12-1.4-1.4z" />
